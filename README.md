@@ -15,8 +15,29 @@ Public data project aimed at creating much more user friendly interface to inter
 ### Project and Database
 
 ```
+sudo apt-get install git curl libcurl3 libcurl3-gnutls libcurl4-openssl-dev libpq-dev postgresql-client postgresql -y
+sudo -u postgres createuser -s $USER
+sudo -u postgres createdatabase -s $USER
+sudo -u postgres createdb $USER
+
+# do this http://stackoverflow.com/questions/17443379/psql-fatal-peer-authentication-failed-for-user-dev/21889759#21889759
+
+curl https://raw.github.com/fesplugas/rbenv-installer/master/bin/rbenv-installer | bash
+# add rbenv to your path
+echo 'export RBENV_ROOT="${HOME}/.rbenv"
+if [ -d "${RBENV_ROOT}" ]; then
+  export PATH="${RBENV_ROOT}/bin:${PATH}"
+  eval "$(rbenv init -)"
+fi' | tee -a ~/.bash_profile
+
+#logout, login
+rbenv bootstrap-ubuntu-12-04
+rbenv install 1.9.3-p545
+
 git clone git://github.com/otvorenesudy/otvorenesudy.git
 cd otvorenesudy
+rbenv local 1.9.3-p545
+gem install bundler
 git submodule init   # initialize submodule, e.g. otvorenesudy-data
 git submodule update # or git submodule foreach git pull origin master
 bundle install
