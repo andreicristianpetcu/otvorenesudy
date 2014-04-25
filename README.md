@@ -20,6 +20,8 @@ sudo -u postgres createuser -s $USER
 sudo -u postgres createdatabase -s $USER
 sudo -u postgres createdb $USER
 
+sudo -u postgres psql -c "CREATE USER opencourts WITH PASSWORD 'opencourts' SUPERUSER CREATEDB CREATEROLE;"
+
 # do this http://stackoverflow.com/questions/17443379/psql-fatal-peer-authentication-failed-for-user-dev/21889759#21889759
 
 curl https://raw.github.com/fesplugas/rbenv-installer/master/bin/rbenv-installer | bash
