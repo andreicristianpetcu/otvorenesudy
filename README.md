@@ -34,11 +34,11 @@ fi' | tee -a ~/.bash_profile
 
 #logout, login
 rbenv bootstrap-ubuntu-12-04
-rbenv install 1.9.3-p545
+rbenv install 2.1.0
 
 git clone git://github.com/otvorenesudy/otvorenesudy.git
 cd otvorenesudy
-rbenv local 1.9.3-p545
+rbenv local 2.1.0
 gem install bundler
 git submodule init   # initialize submodule, e.g. otvorenesudy-data
 git submodule update # or git submodule foreach git pull origin master
@@ -50,6 +50,7 @@ Open `config/database.yml` and edit database configuration.
 Set `$RAILS_ENV` variable to your environment (development, test) and create the database.
 
 ```
+# check this out https://gist.github.com/ffmike/877447
 RAILS_ENV=development
 rake db:create
 ```
@@ -57,23 +58,31 @@ rake db:create
 ### PostgreSQL Trigram extension
 
 ```
-sudo apt-get install postgresql-contrib
+sudo apt-get install postgresql-contrib -y
 sudo service postgresql restart
 cd /usr/share/postgresql/9.1/extension/
+sudo su postgres
+RAILS_ENV=development
 psql -U postgres -d opencourts_$RAILS_ENV -f pg_trgm--1.0.sql
+exit
 ```
 
 Note that you need to set up the Trigram extension for all Rails environments you plan to use separatly.
 
 ### Elasticsearch
-
+sudo apt-get install openjdk-7-jre -y
+cd ~/
+wget https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.1.1.zip
+unzip elasticsearch-1.1.1.zip -d elasticsearch
+cd elasticsearch/elasticsearch-1.1.1
+bin/elasticsearch
 Follow the [offical installation guide](https://github.com/elasticsearch/elasticsearch).
 
 ### PDF processing
 
 ```
-sudo apt-get install graphicsmagick
-sudo apt-get install tesseract-ocr
+sudo apt-get install graphicsmagick -y
+sudo apt-get install tesseract-ocr -y
 ```
 
 ### Tests
@@ -89,6 +98,9 @@ To quicky setup a small database with real production data for development purpo
 Setup database:
 
 ```
+cd ~/otvorenesudy
+cp config/configuration.{yml.example,yml}
+#set secret tocen to something line secret_token: 3a8311d259e630f0403af07ee078ad7f
 rake db:setup
 ```
 
@@ -97,6 +109,7 @@ The `db:setup` task loads schema and seed data. Note that the seed data are esse
 Crawl the necessary data, courts and judges from justice.gov.sk:
 
 ```
+# you are here
 rake crawl:courts
 rake crawl:judges
 ```
