@@ -8,8 +8,8 @@
   <div class="search">
     <div class="container">
       <h1>
-        Viac transparentnosti do<br/>
-        slovenského súdnictva
+        <%= t '.viac' %><br/>
+        <%= t '.slovenského' %>
       </h1>
 
       <div class="row">
@@ -35,36 +35,36 @@
       <div class="item">
         <div class="carousel-content">
           <h1>
-            Súdom na Slovensku<br/>
-            nedôveruje až 67% ľudí
-            <small>&mdash; Inštitút pre verejné otázky, jún 2012</small>
+            <%= t '.súdom_na' %><br/>
+            <%= t '.nedôveruje_a' %>
+            <small><%= t '.mdash_in_titút' %></small>
           </h1>
         </div>
       </div>
       <div class="item">
         <div class="carousel-content">
           <h1>
-            Trestné konanie na okresných súdoch<br/>
-            trvá priemerne štyri a pol mesiaca
-            <small>&mdash; Štatistická ročenka MSSR 2012</small>
+            <%= t '.trestné' %><br/>
+            <%= t '.trvá_priemerne' %>
+            <small><%= t '.mdash' %></small>
           </h1>
         </div>
       </div>
       <div class="item">
         <div class="carousel-content">
           <h1>
-            Už šesť miliónov eur zaplatili okresné a krajské<br/>
-            súdy sťažovateľom za súdne prieťahy od roku 2006
-            <small>&mdash; nálezy Ústavného súdu</small>
+            <%= t '.u_es_miliónov' %><br/>
+            <%= t '.súdy_s_a_ovate' %>
+            <small><%= t '.mdash_nálezy' %></small>
           </h1>
         </div>
       </div>
       <div class="item">
         <div class="carousel-content">
           <h1>
-            Vyhľadávanie v <%= number_to_human(Decree.total, precision: 0, significant: false).downcase %> rozhodnutiach<br/>
-            a <%= number_to_human(Hearing.total, precision: 0, significant: false).downcase %> pojednávaniach
-            <small>&mdash; Otvorené Súdy</small>
+            <%= t '.vyh_adávanie_v', :number_to => (number_to_human(Decree.total, precision: 0, significant: false).downcase) %><br/>
+            <%= t '.a_3', :number_to => (number_to_human(Hearing.total, precision: 0, significant: false).downcase) %>
+            <small><%= t '.mdash_otvorené' %></small>
           </h1>
         </div>
       </div>

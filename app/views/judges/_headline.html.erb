@@ -1,7 +1,7 @@
-Priemerný mesačný príjem začínajúceho sudcu<br/>
-na okresnom súde v roku 2012 bol 2&nbsp;500 eur,<br/>
-sudcu na Najvyššom súde 3&nbsp;600 eur
+<%= t '.priemerný_mesa_1' %><br/>
+<%= t '.na_okresnom' %><br/>
+<%= t '.sudcu_na_najvy' %>
 
 <small class="total">
-  Otvorené Súdy &mdash; vyhľadávate medzi <%= number_with_delimiter Judge.total %> sudcami
+  <%= t '.otvorené_súdy_6', :number_with => (number_with_delimiter Judge.total) %>
 </small>

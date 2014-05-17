@@ -1,13 +1,11 @@
-<h2>Zmienky v médiách</h2>
+<h2><%= t '.zmienky_v' %></h2>
 
 <% if results.any? %>
   <div class="alert alert-warning">
-    <%= icon_tag :'warning-sign' %>
-    Odkazy sú vyhľadávané automaticky na základe názvu súdu.
-    Súdu sa týkať nemusia.
+    <%= t '.odkazy_sú_vyh', :icon_tag => (icon_tag :'warning-sign') %>
   </div>
 
   <%= render 'shared/context_search_results', results: results, offset: 0 %>
 <% else %>
-  O súde neboli nájdené žiadne zmienky v médiách.
+  <%= t '.o_súde_neboli' %>
 <% end %>

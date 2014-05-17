@@ -30,15 +30,13 @@
         </div>
         
         <p class="lead centered">
-          Odoberanie notifikácií si registrujete vo vyhľadávaní
+          <%= t '.odoberanie' %>
         </p>
         <p class="lead centered">
-          <%= link_to "Pojednávaní", search_hearings_path, class: :'btn btn-primary btn-large' %>
-          alebo
-          <%= link_to "Rozhodnutí", search_decrees_path, class: :'btn btn-primary btn-large' %>
+          <%= t '.alebo', :link_to => (link_to (t '.pojednávaní'), search_hearings_path, class: :'btn btn-primary btn-large'), :link_to_1 => (link_to (t '.rozhodnutí'), search_decrees_path, class: :'btn btn-primary btn-large') %>
         </p>
         <p class="lead centered">
-          podľa aktuálnych nastavení vyhľadávania.
+          <%= t '.pod_a' %>
         </p>
       </div>
     </div>

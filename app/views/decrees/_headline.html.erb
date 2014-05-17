@@ -1,10 +1,10 @@
-V priemere 45% súdnych rozhodnutí<br/>
-je potvrdených vyšším súdom
+<%= t '.v_priemere_45' %><br/>
+<%= t '.je_potvrdených' %>
 
 <small class="source">
-  Štatistická ročenka MSSR 2011 a 2012
+  Š<%= t '.tatistická_ro' %>
 </small>
 
 <small class="total">
-  Otvorené Súdy &mdash; vyhľadávate v <%= number_with_delimiter Decree.total %> rozhodnutiach
+  <%= t '.otvorené_súdy_5', :number_with => (number_with_delimiter Decree.total) %>
 </small>

@@ -10,21 +10,19 @@
       <% end %>
       <br/>
       <small>
-        Verejné súdne konanie
+        <%= t '.verejné_súdne' %>
         <% if proceeding.single_hearing? %>
-          <%= proceeding.duration_events.first.historical ? "začalo" : "začne" %>
-          dňa &ndash; <%= proceeding_date proceeding.duration_events.first.date %>
+          <%= t '.d_a_ndash', :proceeding => (proceeding.duration_events.first.historical ? "začalo" : "začne"), :proceeding_1 => (proceeding_date proceeding.duration_events.first.date) %>
         <% elsif proceeding.single_decree?  %>
-          bolo ukončené dňa &ndash; <%= proceeding_date proceeding.duration_events.first.date %>
+          <%= t '.bolo_ukon_ené', :proceeding => (proceeding_date proceeding.duration_events.first.date) %>
         <% else %>
           <% unless proceeding.probably_closed? %>
-            trvá odo dňa &ndash; <%= proceeding_date proceeding.duration_events.first.date %>
+            <%= t '.trvá_odo_d_a', :proceeding => (proceeding_date proceeding.duration_events.first.date) %>
           <% else %>
             <% if proceeding.duration_events.first.date.to_date == proceeding.duration_events.last.date.to_date %>
-              prebehlo dňa &ndash; <%= proceeding_date proceeding.duration_events.first.date, format: :normal %>
+              <%= t '.prebehlo_d_a', :proceeding => (proceeding_date proceeding.duration_events.first.date, format: :normal) %>
             <% else %>
-              trvalo odo dňa &ndash; <%= proceeding_date proceeding.duration_events.first.date, format: :normal %>
-              do dňa &ndash; <%= proceeding_date proceeding.duration_events.last.date, format: :normal %>
+              <%= t '.trvalo_odo_d_a', :proceeding => (proceeding_date proceeding.duration_events.first.date, format: :normal), :proceeding_1 => (proceeding_date proceeding.duration_events.last.date, format: :normal) %>
             <% end %>
           <% end %>
         <% end %>
@@ -39,21 +37,17 @@
         <%= tooltip_tag proceeding.file_number || '?', "Identifikačné číslo súdnych spisov", placement: :right %>
       </div>
 
-      Evidujeme
-      <%= translate_with_count(proceeding.hearings.size, :hearing) %> a
-      <%= translate_with_count(proceeding.decrees.size, :decree) %>.
+      <%= t '.evidujeme_a', :translate_with => (translate_with_count(proceeding.hearings.size, :hearing)), :translate_with_1 => (translate_with_count(proceeding.decrees.size, :decree)) %>
       <br/>
       <% if proceeding.courts.any? %>
-        <%= translate_without_count(proceeding.courts.size, :court).upcase_first %> &ndash; <%= links_to_courts proceeding.courts %>
+        <%= t '.ndash', :translate => (translate_without_count(proceeding.courts.size, :court).upcase_first), :links_to => (links_to_courts proceeding.courts) %>
         <br/>
       <% end %>
       <% if proceeding.judges.any? %>
         <% if proceeding.judges_exact.any? %>
-          <%= translate_without_count(proceeding.judges_exact.size, :judge).upcase_first %>
-          &ndash; <%= links_to_judges proceeding.judges_exact %>
+          <%= t '.ndash_1', :translate => (translate_without_count(proceeding.judges_exact.size, :judge).upcase_first), :links_to => (links_to_judges proceeding.judges_exact) %>
         <% else %>
-          <%= translate_without_count(proceeding.judges_inexact.size, :judge).upcase_first %>
-          &ndash; <%= judge_processed_names proceeding.judges_inexact %>
+          <%= t '.ndash_2', :translate => (translate_without_count(proceeding.judges_inexact.size, :judge).upcase_first), :judge => (judge_processed_names proceeding.judges_inexact) %>
         <% end %>
         <br/>
       <% end %>

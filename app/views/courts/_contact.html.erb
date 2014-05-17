@@ -1,36 +1,36 @@
 <div class="row">
   <div class="span8">
     <% if @court.phone || @court.fax %>
-      <h2>Kontakt <%= icon_tag :'phone-sign' %></h2>
+      <h2><%= t '.kontakt', :icon_tag_phone => (icon_tag :'phone-sign') %></h2>
   
       <% if @court.phone %>
         <div class="row">
-          <div class="span2">Tel. číslo:</div>
+          <div class="span2"><%= t '.tel_íslo' %></div>
           <div class="span6"><%= @court.phone %></div>
         </div>
       <% end %>
 
       <% if @court.fax %>
         <div class="row">
-          <div class="span2">Fax:</div>
+          <div class="span2"><%= t '.fax' %></div>
           <div class="span6"><%= @court.fax %></div>
         </div>
       <% end %>
     <% end %>
 
     <% if @court.media_person || @court.media_phone %>
-      <h4>Pre médiá</h4>
+      <h4><%= t '.pre_médiá' %></h4>
   
       <% if @court.media_person %>
         <div class="row">
-          <div class="span2">Kontaktná osoba:</div>
+          <div class="span2"><%= t '.kontaktná' %></div>
           <div class="span6"><%= @court.media_person %></div>
         </div>
       <% end %>
 
       <% if @court.media_phone %>
         <div class="row">
-          <div class="span2">Tel. číslo:</div>
+          <div class="span2"><%= t '.tel_íslo_1' %></div>
           <div class="span6"><%= @court.media_phone %></div>
         </div>
       <% end %>
@@ -38,13 +38,13 @@
   </div>
 
   <div class="span4">
-    <h2>Adresa <%= icon_tag :envelope %></h2>
+    <h2><%= t '.adresa', :icon_tag => (icon_tag :envelope) %></h2>
 
     <address class="well">
       <strong><%= @court.name %></strong><br/>
       <%= @court.street %><br/>
       <%= @court.municipality.zipcode %> <%= @court.municipality.name %><br/>
-      Slovenská republika
+      <%= t '.slovenská' %>
     </address>
   </div>
 </div>
@@ -58,13 +58,12 @@
 
 <div class="row">
   <div class="span12">
-    <h2>Mapa <%= icon_tag :'map-marker' %></h2>
+    <h2><%= t '.mapa', :icon_tag_map => (icon_tag :'map-marker') %></h2>
 
     <%= court_map @court, info: true, zoom: 16 %>
 
     <p>
-      <%= link_to "Zobraziť na mape", map_courts_path %>
-      aj s ostatnými súdmi Slovenskej Republiky.
+      <%= t '.aj_s_ostatnými', :link_to => (link_to (t '.zobrazi_na'), map_courts_path) %>
     </p>
   </div>
 </div>

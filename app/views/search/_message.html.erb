@@ -1,9 +1,8 @@
 <div class="search-message">
   <% unless @count.zero? %>
-    <%= @results.offset + 1 %> &ndash; <%= [@results.offset + @results.per_page, @count].min %>
-    z celkovo <%= translate_with_count(@count, :result) %>
+    <%= t '.ndash_z', :results_offset => (@results.offset + 1), :results_offset_1 => ([@results.offset + @results.per_page, @count].min), :translate_with => (translate_with_count(@count, :result)) %>
   <% else %>
-    Nenájdené <%= translate_with_count(@count, :result) %>
+    <%= t '.nenájdené', :translate_with => (translate_with_count(@count, :result)) %>
   <% end %>
-  (<%= @results.time %> ms)
+  (<%= t '.ms', :results_time => (@results.time) %>
 </div>

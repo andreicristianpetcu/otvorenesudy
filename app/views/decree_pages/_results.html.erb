@@ -1,8 +1,6 @@
 <% if @highlights.any? %>
   <div class="alert alert-info">
-    <%= close_link_to @decree %>
-    <%= icon_tag :search %> Pre hľadaný výraz <strong>&bdquo;<%= html_escape params[:q] %>&ldquo;</strong>
-    sme našli <strong><%= translate_with_count(@highlights.size, :result) %></strong>.
+    <%= t '.pre_h_adaný_html', :close_link_to => (close_link_to @decree), :icon_tag => (icon_tag :search), :html_escape => (html_escape params[:q]), :translate_with => (translate_with_count(@highlights.size, :result)) %>
   </div>
 
   <dl class="unstyled">
@@ -15,7 +13,6 @@
   </dl>
 <% else %>
   <div class="alert alert-info">
-    <%= close_link_to @decree %>
-    <%= icon_tag :search %> Pre hľadaný výraz sa nenašli <strong>žiadne výsledky</strong>.
+    <%= t '.pre_h_adaný_html', :close_link_to => (close_link_to @decree), :icon_tag => (icon_tag :search) %>
   </div>
 <% end %>

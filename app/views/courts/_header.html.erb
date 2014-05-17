@@ -7,8 +7,7 @@
           <%= translate_with_count Court.total,      :court %>,
           <%= translate_with_count Judge.total,      :judge %>,
           <%= translate_with_count Hearing.total,    :hearing %>,<br/>
-          <%= translate_with_count Decree.total,     :decree %> a
-          <%= translate_with_count Proceeding.total, :proceeding %>
+          <%= t '.a', :translate_with => (translate_with_count Decree.total,     :decree), :translate_with_1 => (translate_with_count Proceeding.total, :proceeding) %>
         </small>
       </h1>
     </div>

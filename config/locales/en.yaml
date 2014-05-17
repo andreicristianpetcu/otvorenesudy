@@ -1,0 +1,79 @@
+---
+sk:
+  views:
+    pagination:
+      first: Prvá strana translated en
+      last: Posledná strana translated en
+      previous: <i class="icon-angle-left"></i> translated en
+      next: <i class="icon-angle-right"></i> translated en
+      truncate: "&hellip; translated en"
+  helpers:
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: "Žiadny %{entry_name} translated en"
+          one: 1 %{entry_name} translated en
+          other: Zobrazených všetkých %{count} translated en
+      more_pages:
+        display_entries: Zobrazených %{first} &ndash; %{last} z celkovo %{total} translated
+          en
+  search:
+    sort:
+      common:
+        score: Relevancia translated en
+        created_at: Dátum pridania dokumentu translated en
+        updated_at: Dátum aktualizácie dokumentu translated en
+        judges_count: Počet sudcov translated en
+        hearings_count: Počet pojednávaní translated en
+        decrees_count: Počet rozhodnutí translated en
+      court:
+        score: Relevancia translated en
+        created_at: Dátum pridania dokumentu translated en
+        updated_at: Dátum aktualizácie dokumentu translated en
+        judges_count: Počet sudcov translated en
+        hearings_count: Počet pojednávaní translated en
+        decrees_count: Počet rozhodnutí translated en
+      judge:
+        score: Relevancia translated en
+        created_at: Dátum pridania dokumentu translated en
+        updated_at: Dátum aktualizácie dokumentu translated en
+        judges_count: Počet sudcov translated en
+        hearings_count: Počet pojednávaní translated en
+        decrees_count: Počet rozhodnutí translated en
+      hearing:
+        score: Relevancia translated en
+        created_at: Dátum pridania dokumentu translated en
+        updated_at: Dátum aktualizácie dokumentu translated en
+        judges_count: Počet sudcov translated en
+        hearings_count: Počet pojednávaní translated en
+        decrees_count: Počet rozhodnutí translated en
+        date: Dátum pojednávania translated en
+      decree:
+        score: Relevancia translated en
+        created_at: Dátum pridania dokumentu translated en
+        updated_at: Dátum aktualizácie dokumentu translated en
+        judges_count: Počet sudcov translated en
+        hearings_count: Počet pojednávaní translated en
+        decrees_count: Počet rozhodnutí translated en
+        date: Dátum rozhodnutia translated en
+        pages_count: Počet strán rozhodnutia translated en
+      proceeding:
+        score: Relevancia translated en
+        created_at: Dátum pridania dokumentu translated en
+        updated_at: Dátum aktualizácie dokumentu translated en
+        judges_count: Počet sudcov translated en
+        hearings_count: Počet pojednávaní translated en
+        decrees_count: Počet rozhodnutí translated en
+  static_pages:
+    about: O projekte translated en
+    faq: "Často kladené otázky translated en"
+    code: Zdrojový kód translated en
+    contact: Kontakt translated en
+    terms_of_use: Podmiensky používania translated en
+    privacy: Ochrana súkromia translated en
+    copyright: Autorské práva translated en
+    feedback: Našli ste chybu? translated en
+    security: Bezpečnosť translated en
+    how_it_works: Ako to funguje? translated en
+    data_history: História dát translated en
+    api: API translated en

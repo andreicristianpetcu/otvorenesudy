@@ -8,7 +8,7 @@
       <%= form_for resource, as: resource_name, url: password_path(resource_name), html: { method: :post } do |f| %>
         <legend><%= yield :title %></legend>
         <p>
-          <strong>Zabudli ste heslo?</strong>
+          <strong><%= t '.zabudli_ste' %></strong>
         </p>
         <hr/>
         <p>
@@ -16,7 +16,7 @@
           <%= f.email_field :email, autofocus: true, class: :span8 %>
         </p>
         <%= f.hidden_field :reset_password_token %>
-        <button type="submit" class="btn btn-primary btn-large">Poslať inštrukcie</button>
+        <button type="submit" class="btn btn-primary btn-large"><%= t '.posla_in' %></button>
       <% end %>
     </div>
   </div>

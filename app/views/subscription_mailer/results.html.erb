@@ -1,33 +1,30 @@
 <%= render 'header' %>
 
 <div class="section">
-  <h4>Nastavenie vyhľadávania:</h4>
+  <h4><%= t '.nastavenie_vyh' %></h4>
   
   <% if @subscription.query.value.any? %>
     <ul class="unstyled">
       <% @subscription.query.value.each do |name, values| %>
         <li>
-          <%= t "#{@model.facets[name].key}.title" %> &ndash;
-          <%= Array.wrap(values).join ', ' %>
+          <%= t '.ndash_16', :t_title => (t "#{@model.facets[name].key}.title"), :array_wrap => (Array.wrap(values).join ', ') %>
         </li>
       <% end %>
     </ul>
   <% else %>
     <p>
-      Nenastavené žiadne obmedzenia.
+      <%= t '.nenastavené_1' %>
     </p>
   <% end %>
 </div>
 
 <div class="section">
-  <h4>Nové <%= translate_without_count(:other, @type) %>:</h4>
+  <h4><%= t '.nové', :translate => (translate_without_count(:other, @type)) %>:</h4>
   
   <%= render "#{@type.to_s.pluralize}" %>
 
   <p>  
-    <%= link_to_search @type, "Zobraziť daľšie #{translate_without_count(:other, @type)}", params: @params %>
-    &middot;
-    <%= link_to "Zrušiť odoberanie notifikácií", subscriptions_users_url %>
+    <%= t '.middot_1', :link_to_search => (link_to_search @type, "Zobraziť daľšie #{translate_without_count(:other, @type)}", params: @params), :link_to_zru_i => (link_to (t '.zru_i_2'), subscriptions_users_url) %>
   </p>
 </div>
 

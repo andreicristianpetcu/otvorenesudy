@@ -32,8 +32,8 @@
 <section id="regional-courts">
   <div class="page-header">
     <h1>
-      Krajské súdy
-      <small>Na Slovensku je <%= @regional.size %> krajských súdov.</small>
+      <%= t '.krajské_súdy' %>
+      <small><%= t '.na_slovensku_1', :regional_size => (@regional.size) %></small>
     </h1>
   </div>
 
@@ -47,8 +47,8 @@
 <section id="district-courts">
   <div class="page-header">
     <h1>
-      Okresné súdy
-      <small>Na Slovensku je <%= @district.size %> okresných súdov.</small>
+      <%= t '.okresné_súdy' %>
+      <small><%= t '.na_slovensku_2', :district_size => (@district.size) %></small>
     </h1>
   </div>
 
@@ -63,8 +63,7 @@
   <div class="row">
     <div class="span12">
       <small class="muted">
-        Informácie o súdoch boli získané z portálu
-        <%= external_link_to 'Ministerstva spravodlivosti Slovenskej republiky', JusticeGovSk::Request::CourtList.url, class: :muted, icon: true %>
+        <%= t '.informácie_o', :external_link => (external_link_to 'Ministerstva spravodlivosti Slovenskej republiky', JusticeGovSk::Request::CourtList.url, class: :muted, icon: true) %>
       </small>
     </div>
   </div>

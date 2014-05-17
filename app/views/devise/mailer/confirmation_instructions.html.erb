@@ -1,16 +1,15 @@
 <p>
-  Vitajte na stránkach projektu <%= link_to 'Otvorené Súdy', 'http://otvorenesudy.sk' %>,
+  <%= t '.vitajte_na', :link_to => (link_to (t '.otvorené_súdy_2'), 'http://otvorenesudy.sk') %>,
 </p>
 <p>
-  pre potvrdenie Vášho účtu prosím kliknite na nasledujúci odkaz:
-  <%= link_to 'potvdiť registráciu', confirmation_url(@resource, confirmation_token: @token) %>.
+  <%= t '.pre_potvrdenie', :link_to_potvdi => (link_to (t '.potvdi'), confirmation_url(@resource, confirmation_token: @token)) %>
 </p>
 <p>
-  Registráciu je nutné potvrdiť najneskôr do dvoch dní, inak Vám systém neumožní sa prihlásiť.
+  <%= t '.registráciu_je' %>
 </p>
 <p>
-  V prípade akýchkoľvek otázok nás <%= mail_to 'kontakt@otvorenesudy.sk', 'kontaktujte', encode: :hex %>.
+  <%= t '.v_prípade_1', :mail_to => (mail_to 'kontakt@otvorenesudy.sk', 'kontaktujte', encode: :hex) %>
 </p>
 <p>
-  Ďakujeme za registráciu a tešíme sa, že Vás náš projekt oslovil.
+  Ď<%= t '.akujeme_za_1' %>
 </p>

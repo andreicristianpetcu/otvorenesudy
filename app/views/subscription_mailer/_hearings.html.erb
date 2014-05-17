@@ -5,31 +5,30 @@
       <% if hearing.date %>
         <br/>
         <small>
-          Pojednávanie <%= hearing.date.past? ? "prebehlo" : "prebehne" %> dňa &ndash;
-          <%= hearing_date hearing.date %>
+          <%= t '.pojednávanie_d_2', :hearing_date => (hearing.date.past? ? "prebehlo" : "prebehne"), :hearing_date_1 => (hearing_date hearing.date) %>
         </small>
       <% end %>
     </h4>
 
     <div class="search-result-content">
       <% if hearing.court %>
-        Súd &ndash; <%= link_to hearing.court.name, court_url(hearing.court) %>
+        <%= t '.súd_ndash_2', :link_to => (link_to hearing.court.name, court_url(hearing.court)) %>
         <br/>
       <% end %>
       <% if hearing.judges.normal.any? %>
-        <%= translate_without_count(hearing.judges.size, :judge).upcase_first %> &ndash; <%= links_to_judges hearing.judges.normal %>
+        <%= t '.ndash_17', :translate => (translate_without_count(hearing.judges.size, :judge).upcase_first), :links_to => (links_to_judges hearing.judges.normal) %>
         <br/>
       <% end %>
       <% if hearing.proposers.any? %>
-        <%= translate_without_count(hearing.proposers.size, :proposer).upcase_first %> &ndash; <%= hearing.proposers.pluck(:name).to_sentence %>
+        <%= t '.ndash_18', :translate => (translate_without_count(hearing.proposers.size, :proposer).upcase_first), :hearing => (hearing.proposers.pluck(:name).to_sentence) %>
         <br/>
       <% end %>
       <% if hearing.opponents.any? %>
-        <%= translate_without_count(hearing.opponents.size, :opponent).upcase_first %> &ndash; <%= hearing.opponents.pluck(:name).to_sentence %>
+        <%= t '.ndash_19', :translate => (translate_without_count(hearing.opponents.size, :opponent).upcase_first), :hearing => (hearing.opponents.pluck(:name).to_sentence) %>
         <br/>
       <% end %>
       <% if hearing.defendants.any? %>
-        <%= translate_without_count(hearing.defendants.size, :defendant).upcase_first %> &ndash; <%= hearing.defendants.pluck(:name).to_sentence %>
+        <%= t '.ndash_20', :translate => (translate_without_count(hearing.defendants.size, :defendant).upcase_first), :hearing => (hearing.defendants.pluck(:name).to_sentence) %>
         <br/>
       <% end %>
     </div>

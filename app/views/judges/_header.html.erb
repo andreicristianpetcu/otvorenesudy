@@ -2,17 +2,16 @@
   <div class="pattern">
     <div class="container">
       <h1>
-        Otvorené vyhľadávanie
+        <%= t '.otvorené_vyh' %>
         <small>
           <%= translate_with_count Court.total,      :court %>,
           <%= translate_with_count Judge.total,      :judge %>,
           <%= translate_with_count Hearing.total,    :hearing %>,<br/>
-          <%= translate_with_count Decree.total,     :decree %> a
-          <%= translate_with_count Proceeding.total, :proceeding %>
+          <%= t '.a_1', :translate_with => (translate_with_count Decree.total,     :decree), :translate_with_1 => (translate_with_count Proceeding.total, :proceeding) %>
         </small>
       </h1>
     </div>
   </div>
 </header>
 
-Priemerný mesačný príjem začínajúceho sudcu na okresnom súde v roku 2012 bol 2500 eur, sudcu na Najvyššom súde 3600 eur.
+<%= t '.priemerný_mesa' %>

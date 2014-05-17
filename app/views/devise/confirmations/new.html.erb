@@ -8,14 +8,14 @@
       <%= form_for resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post } do |f| %>
         <legend><%= yield :title %></legend>
         <p>
-          <strong>Nedostali ste inštrukcie pre potvrdenie registrácie?</strong>
+          <strong><%= t '.nedostali_ste' %></strong>
         </p>
         <hr/>
         <p>
           <%= f.label :email %>
           <%= f.email_field :email, autofocus: true, class: :span8 %>
         </p>
-        <button type="submit" class="btn btn-primary btn-large">Preposlať inštrukcie</button>
+        <button type="submit" class="btn btn-primary btn-large"><%= t '.preposla_in' %></button>
       <% end %>
     </div>
   </div>

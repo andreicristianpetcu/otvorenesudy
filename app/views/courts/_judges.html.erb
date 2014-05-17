@@ -1,18 +1,18 @@
-<h2>Vedenie súdu</h2>
+<h2><%= t '.vedenie_súdu' %></h2>
 
 <div class="row">
   <div class="span12">
     <p>
       <% if @court.chair %>
-        <%= judge_at_court_position(@court.chair, @court).upcase_first %> súdu je <%= link_to_judge @court.chair %><%= @court.vicechair ? ' a' : '.' %>
+        <%= t '.súdu_je_1', :judge_at_court => (judge_at_court_position(@court.chair, @court).upcase_first), :link_to_judge => (link_to_judge @court.chair), :court => (@court.vicechair ? ' a' : '.') %>
       <% end %>
       <% if @court.vicechair %>
         <% unless @court.chair %>
-          <%= judge_at_court_position(@court.vicechair, @court).upcase_first %> súdu
+          <%= t '.súdu_1', :judge_at_court => (judge_at_court_position(@court.vicechair, @court).upcase_first) %>
         <% else %>
           <%= judge_at_court_position(@court.vicechair, @court) %>
         <% end %>
-        je <%= link_to_judge @court.vicechair %>.
+        <%= t '.je_1', :link_to_judge => (link_to_judge @court.vicechair) %>
       <% end %>
     </p>
   </div>
@@ -20,13 +20,13 @@
 
 <hr/>
 
-<h2>Sudcovia</h2>
+<h2><%= t '.sudcovia' %></h2>
 
 <div class="row">
   <div class="span12">
     <% if @judges.active.listed.any? %>
       <p>
-        Tabuľka sudcov, ktorí aktívne pôsobia na súde.
+        <%= t '.tabu_ka_sudcov' %>
       </p>
 
       <%= render 'judge_list', court: @court, judges: @judges.active.listed %>
@@ -36,8 +36,7 @@
       <br/>
 
       <p>
-        Tabuľka sudcov, ktorí pôsobili na súde a ostatných úradníkov, ktorí
-        boli uvedení pri súdnych pojednávaniach alebo rozhodnutiach.
+        <%= t '.tabu_ka_sudcov_1' %>
       </p>
 
       <%= render 'judge_list', court: @court, judges: @judges.not_active_or_not_listed %>

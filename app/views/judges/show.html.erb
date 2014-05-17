@@ -13,8 +13,7 @@
 
       <% if @judge.employments.at_court_by_type(CourtType.supreme).any? || @judge.employments.at_court_by_type(CourtType.regional).any? %>
         <p class="text-error">
-          <span class="gutter centered"><%= icon_tag :'warning-sign' %></span>
-          Údaje o činnosti sudcu sú neúplné. Preberaným dátam z portálu Ministerstva spravodlivosti chýba informácia o zložení senátov.
+          <%= t '.Údaje_o_html', :icon_tag => (icon_tag :'warning-sign') %>
         </p>
       <% end %>
 
@@ -25,110 +24,90 @@
           </span>
           <% case employment.active %>
           <% when true %>
-            Aktívn<%= @judge.probably_woman ? 'a' : 'y' %>
+            <%= t '.aktívn', :judge_probably => (@judge.probably_woman ? 'a' : 'y') %>
           <% when false %>
-            Neaktívn<%= @judge.probably_woman ? 'a' : 'y' %>
+            <%= t '.neaktívn', :judge_probably => (@judge.probably_woman ? 'a' : 'y') %>
           <% end %>
           <% if employment.judge_position %>
             <%= (employment.active == nil ? 'P' : 'p') + (@judge.probably_woman ? 'racovníčka' : 'racovník') if employment.judge_position.charged? %>
             <%= @judge.probably_woman? && employment.judge_position.value == 'sudca' ? 'sudkyňa' : employment.judge_position.value %>
           <% else %>
             <% if @judge.probably_superior_court_officer? %>
-              <%= employment.active == nil ? 'P' : 'p' %>ravdepodobne <%= tooltip_tag "VSÚ", "Vyšší súdny úradník" %>
+              <%= t '.ravdepodobne', :employment => (employment.active == nil ? 'P' : 'p'), :tooltip_tag => (tooltip_tag "VSÚ", "Vyšší súdny úradník") %>
             <% else %>
-              <%= employment.active == nil ? 'N' : 'n' %>eznám<%= @judge.probably_woman ? 'a pracovníčka' : 'y pracovník' %>
+              <%= t '.eznám', :employment => (employment.active == nil ? 'N' : 'n'), :judge_probably => (@judge.probably_woman ? 'a pracovníčka' : 'y pracovník') %>
             <% end %>
           <% end %>
-          na súde 
-          <%= link_to_court employment.court %>,
-          <%= 'zatiaľ ne' if Hearing.during_employment(employment).exact.size.zero? %>evidujeme
-          <%= translate_with_count(Hearing.during_employment(employment).exact.size, :hearing) %> a
-          <%= translate_with_count(Decree.during_employment(employment).exact.size, :decree) %>.
+          <%= t '.na_súde_zatia', :link_to_court => (link_to_court employment.court), :if_hearing => (if Hearing.during_employment(employment).exact.size.zero?), :translate_with => (translate_with_count(Hearing.during_employment(employment).exact.size, :hearing)), :translate_with_1 => (translate_with_count(Decree.during_employment(employment).exact.size, :decree)) %>
           <% if employment.note %>
             <br/>
-            <span class="gutter centered"><%= icon_tag :pushpin %></span>
-            Poznámka: <%= employment.note %>
+            <%= t '.poznámka_html', :icon_tag => (icon_tag :pushpin), :employment => (employment.note) %>
           <% end %>
         </p>
       <% end %>
 
       <% @designations.each do |designation| %>
         <p>
-          <span class="gutter centered"><%= judge_designation_date_tag designation %></span>
-          Sudca bol vymenovaný do funkcie pred
-          <%= judge_designation_date_distance designation %><%= ", #{designation.type.value.sub(/^\D{0,1}/) { |c| c.downcase }}" if designation.type %>.
+          <%= t '.sudca_bol_html', :judge => (judge_designation_date_tag designation), :judge_1 => (judge_designation_date_distance designation), :designation => (designation.type.value.sub(/^\D{0,1), :if_designation => (if designation.type) %>
         </p>
       <% end %>
 
       <% if File.readable? @judge.curriculum_path %>
         <p>
-          <span class="gutter centered"><%= icon_tag :'file-text-alt' %></span>
-          <%= external_link_to "Životopis", curriculum_judge_path(@judge) %>, ktorý bol zverejnený vo výberovom konaní.
+          <%= t '.ktorý_bol_html', :icon_tag_file => (icon_tag :'file-text-alt'), :external_link => (external_link_to "Životopis", curriculum_judge_path(@judge)) %>
         </p>
       <% end %>
 
       <% if File.readable? @judge.cover_letter_path %>
         <p>
-          <span class="gutter centered"><%= icon_tag :'file-text-alt' %></span>
-          <%= external_link_to "Motivačný list", cover_letter_judge_path(@judge) %>, ktorý bol zverejnený vo výberovom konaní.
+          <%= t '.ktorý_bol_html', :icon_tag_file => (icon_tag :'file-text-alt'), :external_link => (external_link_to "Motivačný list", cover_letter_judge_path(@judge)) %>
         </p>
       <% end %>
 
       <% if @statistical_summaries.any? %>
         <p>
-          <span class="gutter centered"><%= icon_tag :legal %></span>
-          Počet rozhodnutí Ústavného súdu voči sudcovi &ndash; vydané <%= @judge.released_constitutional_decrees_total %> a prieťahy pred pridelením veci <%= @judge.delayed_constitutional_decrees_total %>.
+          <%= t '.po_et_html', :icon_tag_legal => (icon_tag :legal), :judge_released => (@judge.released_constitutional_decrees_total), :judge_delayed => (@judge.delayed_constitutional_decrees_total) %>
         </p>
 
         <% if @judge.appeal_court_acceptance_rate? %>
           <p>
-            <span class="gutter centered"><%= icon_tag :'thumbs-up-alt' %></span>
-            Rozhodnutie sudcu je v prípade odvolaní potvrdené vyšším súdom v
-            <%= number_to_percentage(@judge.appeal_court_acceptance_rate * 100, precision: 1) %>.
-            <%= popover_tag icon_tag(:question), "#{@statistical_summaries.by_prominent_court_type(@judge).order('year desc').map { |summary| "#{summary.year}, #{summary.court.name}" }.join '<br/>'}", title: "Vypočítané z pôsobení sudcu", trigger: :hover %>
+            <%= t '.rozhodnutie_2_html', :icon_tag => (icon_tag :'thumbs-up-alt'), :number_to => (number_to_percentage(@judge.appeal_court_acceptance_rate * 100, precision: 1)), :popover_tag_html => (popover_tag icon_tag(:question), "#{@statistical_summaries.by_prominent_court_type(@judge).order('year desc').map { |summary| "#{summary.year}, #{summary.court.name}" }.join '<br/>'}", title: "Vypočítané z pôsobení sudcu", trigger: :hover) %>
           </p>
         <% end %>
 
         <% if @judge.unresolved_issues_counts? %>
           <p>
-            <span class="gutter centered"><%= icon_tag :inbox %></span>
-            Nevybavených prípadov mal sudca <%= @judge.unresolved_issues_counts.map { |year, count| "na konci roka #{year} o #{count.abs} #{count > 0 ? 'viac' : 'menej'}" }.to_sentence.html_safe %> ako na jeho začiatku.
+            <%= t '.nevybavených_html', :icon_tag_inbox => (icon_tag :inbox), :judge => (@judge.unresolved_issues_counts.map { |year, count| "na konci roka #{year} o #{count.abs} #{count > 0 ? 'viac' : 'menej'}" }.to_sentence.html_safe) %>
           </p>
         <% end %>
 
         <% if @judge.unfinished_issues_counts? %>
           <p>
-            <span class="gutter centered"><%= icon_tag :inbox %></span>
-            Reštančných prípadov mal sudca <%= @judge.unfinished_issues_counts.map { |year, count| "na konci roka #{year} o #{count.abs} #{count > 0 ? 'viac' : 'menej'}" }.to_sentence.html_safe %> ako na jeho začiatku.
+            <%= t '.re_tan_ných_html', :icon_tag_inbox => (icon_tag :inbox), :judge => (@judge.unfinished_issues_counts.map { |year, count| "na konci roka #{year} o #{count.abs} #{count > 0 ? 'viac' : 'menej'}" }.to_sentence.html_safe) %>
           </p>
         <% end %>
 
         <% if @judge.unfinished_issues_rate? %>
           <p>
-            <span class="gutter centered"><%= icon_tag :'tasks' %></span>
-            Podiel reštančných vecí z celkového počtu nevybavených vecí je <%= @judge.unfinished_issues_rate.map { |year, rate| "#{number_to_percentage(rate * 100, precision: 1)} ku koncu roka #{year}" }.to_sentence.html_safe %>.
-            <%= popover_tag icon_tag(:question), "Vec, nevybavená dlhšie ako 6 mesiacov<br/>v&nbsp;prípade maloletých a&nbsp;dlhšie ako 1 rok<br/>v&nbsp;ostatných prípadoch.", title: "Reštančná vec", trigger: :hover %>
+            <%= t '.podiel_re_tan_html', :icon_tag_tasks => (icon_tag :'tasks'), :judge => (@judge.unfinished_issues_rate.map { |year, rate| "#{number_to_percentage(rate * 100, precision: 1)} ku koncu roka #{year}" }.to_sentence.html_safe), :popover_tag_html => (popover_tag icon_tag(:question), "Vec, nevybavená dlhšie ako 6 mesiacov<br/>v&nbsp;prípade maloletých a&nbsp;dlhšie ako 1 rok<br/>v&nbsp;ostatných prípadoch.", title: "Reštančná vec", trigger: :hover) %>
           </p>
         <% end %>
       <% end %>
 
       <% if @judge.incomes_by_year.any? %>
         <p>
-          <span class="gutter centered"><%= icon_tag :euro %></span>
-          Príjmy a iné pôžitky sudcu uvedené v majetkových priznaniach za roky:
-          <%= @judge.incomes_by_year.map { |year, _| link_to year, "#income-#{year}", :'data-parent' => :'#incomes', :'data-toggle' => :collapse }.to_sentence.html_safe %>.
+          <%= t '.príjmy_a_iné_html', :icon_tag_euro => (icon_tag :euro), :judge_incomes => (@judge.incomes_by_year.map { |year, _| link_to year, "#income-#{year}", :'data-parent' => :'#incomes', :'data-toggle' => :collapse }.to_sentence.html_safe) %>
         </p>
         <div id="incomes">
           <% @judge.incomes_by_year.each do |year, incomes| %>
             <div class="accordion-group">
               <div id="income-<%= year %>" class="collapse">
                 <p>
-                  <span class="gutter centered"><%= icon_tag :euro %></span>
-                  Príjmy a iné pôžitky sudcu uvedené v majetkovom priznaní sudcu za rok <%= year %>:
+                  <%= t '.príjmy_a_iné_html', :icon_tag_euro => (icon_tag :euro), :year => (year) %>:
                 </p>
                 <ul class="unstyled">
                   <% incomes.each do |income| %>
-                    <li><%= icon_tag :'credit-card' %> <%= income.description.upcase_first %> &ndash; <%= number_to_currency income.value, precision: 2 %>.</li>
+                    <li><%= t '.ndash_15', :icon_tag => (icon_tag :'credit-card'), :income => (income.description.upcase_first), :number_to => (number_to_currency income.value, precision: 2) %></li>
                   <% end %>
                 </ul>
               </div>
@@ -139,21 +118,18 @@
 
       <% if @judge.related_people_by_year.any? %>
         <p>
-          <span class="gutter centered"><%= icon_tag :group %></span>
-          Blízke osoby uvedené v majetkových priznaniach sudcu za roky:
-          <%= @judge.related_people_by_year.map { |year, _| link_to year, "#related-people-#{year}", :'data-parent' => :'#related-people', :'data-toggle' => :collapse }.to_sentence.html_safe %>.
+          <%= t '.blízke_osoby_html', :icon_tag_group => (icon_tag :group), :judge_related => (@judge.related_people_by_year.map { |year, _| link_to year, "#related-people-#{year}", :'data-parent' => :'#related-people', :'data-toggle' => :collapse }.to_sentence.html_safe) %>
         </p>
         <div id="related-people">
           <% @judge.related_people_by_year.each do |year, people| %>
             <div class="accordion-group">
               <div id="related-people-<%= year %>" class="collapse">
                 <p>
-                  <span class="gutter centered"><%= icon_tag :group %></span>
-                  Blízke osoby uvedené v majetkových priznaniach sudcu za rok <%= year %>:
+                  <%= t '.blízke_osoby_html', :icon_tag_group => (icon_tag :group), :year => (year) %>:
                 </p>
                 <ul class="unstyled">
                   <% people.each do |person| %>
-                    <li><%= icon_tag :user %> <%= "#{person.function.upcase_first} " if person.function %><%= link_to_related_person(person) %><%= ", #{link_to_institution(person.institution)}".html_safe if person.institution %>.</li>
+                    <li><%= t '.key_3', :icon_tag_user => (icon_tag :user), :person => (person.function.upcase_first), :if_person => (if person.function), :link_to => (link_to_related_person(person)), :link_to_1 => (link_to_institution(person.institution)), :html_safe_if => (.html_safe if person.institution) %></li>
                   <% end %>
                 </ul>
               </div>
@@ -164,13 +140,12 @@
 
       <% if @judge.substantiation_notes_by_year.any? %>
         <p>
-          <span class="gutter centered"><%= icon_tag :pushpin %></span>
-          <a href="#" data-target="#substantiation-notes" data-toggle="collapse">Poznámky k dátam</a> získaných zo štatistických výkazov sudcov.
+          <%= t '.poznámky_k_html', :icon_tag => (icon_tag :pushpin) %>
         </p>
         <div id="substantiation-notes" class="collapse out">
           <ul class="unstyled">
             <% @judge.substantiation_notes_by_year.each do |year, note| %>
-              <li><%= icon_tag :'file-text-alt' %> Výkaz za rok <%= year %> &ndash; <%= note %></li>
+              <li><%= t '.výkaz_za_rok', :icon_tag_file => (icon_tag :'file-text-alt'), :year => (year), :note => (note) %></li>
             <% end %>
           </ul>
         </div>
@@ -218,10 +193,9 @@
   <div class="row">
     <div class="span12">
       <small class="muted">
-        Informácie o sudcovi boli získané <%= @judge.listed ? 'zo' : 'z' %> <%= external_link_to @judge.listed ? 'zoznamu' : 'dokumentu', @judge.uri, class: :muted, icon: true %>,
-        ktorého posledná aktualizácia bola vykonaná <%= time_tag @judge.updated_at.to_date, format: :default %>.
+        <%= t '.informácie_o_6', :judge_listed => (@judge.listed ? 'zo' : 'z'), :external_link => (external_link_to @judge.listed ? 'zoznamu' : 'dokumentu', @judge.uri, class: :muted, icon: true), :time_tag_judge => (time_tag @judge.updated_at.to_date, format: :default) %>
         <br/>
-        Tieto informácie mohli byť ďalej doplnené o dáta získané z majetkových priznaní a štatistických výkazov sudcu.
+        <%= t '.tieto_1' %>
       </small>
     </div>
   </div>

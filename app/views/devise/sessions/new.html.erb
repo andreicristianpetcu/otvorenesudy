@@ -16,7 +16,7 @@
           <%= f.password_field :password, class: :span8 %>
         </p>
         <%= f.hidden_field :remember_me, value: 1 if devise_mapping.rememberable? %>
-        <button type="submit" class="btn btn-primary btn-large">Prihlásiť</button>
+        <button type="submit" class="btn btn-primary btn-large"><%= t '.prihlási' %></button>
       <% end %>
     </div>
   </div>

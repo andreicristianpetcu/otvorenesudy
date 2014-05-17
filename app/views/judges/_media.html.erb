@@ -1,11 +1,9 @@
 <% if results.any? %>
   <div class="alert alert-warning">
-    <%= icon_tag :'warning-sign' %>
-    Odkazy sú vyhľadávané automaticky na základe mena a pôsobiska sudcu.
-    Sudcu sa týkať nemusia.
+    <%= t '.odkazy_sú_vyh_1', :icon_tag => (icon_tag :'warning-sign') %>
   </div>
   
   <%= render 'shared/context_search_results', results: results, offset: 0 %>
 <% else %>
-  O sudcovi neboli nájdené žiadne zmienky v médiách.
+  <%= t '.o_sudcovi' %>
 <% end %>

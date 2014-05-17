@@ -4,20 +4,17 @@
       <%= link_to_hearing hearing, hearing_headline(hearing, limit: 67) %>
       <br/>
       <small>
-        Pojednávanie <%= hearing.historical ? "malo prebehnúť" : "prebehne" %> dňa &ndash;
-        <%= hearing.date ? hearing_date(hearing.date) : "neznámy dátum" %>
+        <%= t '.pojednávanie_d', :hearing => (hearing.historical ? "malo prebehnúť" : "prebehne"), :hearing_date => (hearing.date ? hearing_date(hearing.date) : "neznámy dátum") %>
       </small>
     </h4>
 
     <% if hearing.unprocessed? %>
       <div class="alert alert-error">
-        <%= icon_tag :'warning-sign' %>
-        Pojednávanie je neúplné, pri jeho spracovaní nastala neznáma chyba.
+        <%= t '.pojednávanie', :icon_tag => (icon_tag :'warning-sign') %>
       </div>
     <% elsif hearing.has_future_date? %>
       <div class="alert alert-warning">
-        <%= icon_tag :'warning-sign' %>
-        Dátum pojednávania je zo vzdialenej budúcnosti, ide o chybu v pôvodných dátach.
+        <%= t '.dátum', :icon_tag => (icon_tag :'warning-sign') %>
       </div>
     <% end %>
 
@@ -28,29 +25,27 @@
       </div>
 
       <% if hearing.court %>
-        Súd &ndash; <%= link_to_court hearing.court %>
+        <%= t '.súd_ndash', :link_to_court => (link_to_court hearing.court) %>
         <br/>
       <% end %>
       <% if hearing.judges.normal.any? %>
         <% if hearing.judges.normal.exact.any? %>
-          <%= translate_without_count(hearing.judges.normal.exact.size, :judge).upcase_first %>
-          &ndash; <%= links_to_judges hearing.judges.normal.exact %>
+          <%= t '.ndash_7', :translate => (translate_without_count(hearing.judges.normal.exact.size, :judge).upcase_first), :links_to => (links_to_judges hearing.judges.normal.exact) %>
         <% else %>
-          <%= translate_without_count(hearing.judges.normal.inexact.group(:judge_name_unprocessed).count.size, :judge).upcase_first %>
-          &ndash; <%= judge_processed_names hearing.judges.normal.inexact %>
+          <%= t '.ndash_8', :translate => (translate_without_count(hearing.judges.normal.inexact.group(:judge_name_unprocessed).count.size, :judge).upcase_first), :judge => (judge_processed_names hearing.judges.normal.inexact) %>
         <% end %>
         <br/>
       <% end %>
       <% if hearing.proposers.any? %>
-        <%= translate_without_count(hearing.proposers.size, :proposer).upcase_first %> &ndash; <%= hearing.proposers.pluck(:name).to_sentence %>
+        <%= t '.ndash_9', :translate => (translate_without_count(hearing.proposers.size, :proposer).upcase_first), :hearing => (hearing.proposers.pluck(:name).to_sentence) %>
         <br/>
       <% end %>
       <% if hearing.opponents.any? %>
-        <%= translate_without_count(hearing.opponents.size, :opponent).upcase_first %> &ndash; <%= hearing.opponents.pluck(:name).to_sentence %>
+        <%= t '.ndash_10', :translate => (translate_without_count(hearing.opponents.size, :opponent).upcase_first), :hearing => (hearing.opponents.pluck(:name).to_sentence) %>
         <br/>
       <% end %>
       <% if hearing.defendants.any? %>
-        <%= translate_without_count(hearing.defendants.size, :defendant).upcase_first %> &ndash; <%= hearing.defendants.pluck(:name).to_sentence %>
+        <%= t '.ndash_11', :translate => (translate_without_count(hearing.defendants.size, :defendant).upcase_first), :hearing => (hearing.defendants.pluck(:name).to_sentence) %>
         <br/>
       <% end %>
 

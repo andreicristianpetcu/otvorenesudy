@@ -7,8 +7,7 @@
     <% if office.phone? %>
       <div class="row">
         <div class="span2">
-          <span class="gutter centered"><%= icon_tag :phone %></span>
-          Tel. číslo:
+          <%= t '.tel_íslo_html', :icon_tag_phone => (icon_tag :phone) %>
         </div>
         <div class="span6">
           <%= court_phone office %>
@@ -19,8 +18,7 @@
     <% if office.email? %>
       <div class="row">
         <div class="span2">
-          <span class="gutter centered"><%= icon_tag :'envelope-alt' %></span>
-          E-mail:
+          <%= t '.e_mail_html', :icon_tag => (icon_tag :'envelope-alt') %>
         </div>
         <div class="span6">
           <%= court_email office %>
@@ -31,8 +29,7 @@
     <% if office.note? %>
       <div class="row">
         <div class="span2">
-          <span class="gutter centered"><%= icon_tag :pushpin %></span>
-          Poznámka:
+          <%= t '.poznámka_html', :icon_tag => (icon_tag :pushpin) %>
         </div>
         <div class="span6">
           <%= office.note %>
@@ -45,28 +42,28 @@
     <table class="table table-condensed table-bordered table-striped">
       <thead>
         <th colspan="2">
-          Otváracie hodiny <%= icon_tag :time %>
+          <%= t '.otváracie', :icon_tag_time => (icon_tag :time) %>
         </th>
       </thead>
       <tbody>
         <tr>
-          <td class="span1">Pondelok:</td>
+          <td class="span1"><%= t '.pondelok' %></td>
           <td class="span2"><%= office.hours_monday %></td>
         </tr>
         <tr>
-          <td class="span1">Utorok:</td>
+          <td class="span1"><%= t '.utorok' %></td>
           <td class="span2"><%= office.hours_tuesday %></td>
         </tr>
         <tr>
-          <td class="span1">Streda:</td>
+          <td class="span1"><%= t '.streda' %></td>
           <td class="span2"><%= office.hours_wednesday %></td>
         </tr>
         <tr>
-          <td class="span1">Štvrtok:</td>
+          <td class="span1">Š<%= t '.tvrtok' %></td>
           <td class="span2"><%= office.hours_thursday %></td>
         </tr>
         <tr>  
-          <td class="span1">Piatok:</td>
+          <td class="span1"><%= t '.piatok' %></td>
           <td class="span2"><%= office.hours_friday %></td>
         </tr>
       </tbody>

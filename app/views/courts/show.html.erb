@@ -14,40 +14,30 @@
       <%= render 'shared/social', classes: 'social-vertical pull-right' %>
 
       <p>
-        <span class="gutter centered"><%= icon_tag :user %></span>
-        Na súde <%= @judges.active.listed.any? ? 'pracuje' : 'nepracujú' %>
-        <%= translate_with_count(@judges.active.listed.size, :judge) %>.
+        <%= t '.na_súde_1_html', :icon_tag_user => (icon_tag :user), :judges_active => (@judges.active.listed.any? ? 'pracuje' : 'nepracujú'), :translate_with => (translate_with_count(@judges.active.listed.size, :judge)) %>
       </p>
       <p>
-        <span class="gutter centered"><%= icon_tag :'file-text-alt' %></span>
-        Pre súd <%= 'zatiaľ ne' if @court.hearings.size.zero? %>evidujeme
-        <%= translate_with_count(@court.hearings.size, :hearing) %>
-        a&nbsp;<%= translate_with_count(@court.decrees.size, :decree) %>.
+        <%= t '.pre_súd_zatia_1_html', :icon_tag_file => (icon_tag :'file-text-alt'), :if_court => (if @court.hearings.size.zero?), :translate_with => (translate_with_count(@court.hearings.size, :hearing)), :translate_with_1 => (translate_with_count(@court.decrees.size, :decree)) %>
       </p>
 
       <% if @expenses.any? %>
         <p>
-          <span class="gutter centered"><%= icon_tag :legal %></span>
-          Celkovo <%= rank_with_order Court::Expenses.rank_with_order(@court), asc: 'najmenej', desc: 'najviac' %>
-          pokutovaný súd z <%= Court::Expenses.courts(@court.type).count %>
-          <%= @court.type == CourtType.regional ? 'krajských' : 'okresných' %> súdov.
+          <%= t '.celkovo_html', :icon_tag_legal => (icon_tag :legal), :rank_with => (rank_with_order Court::Expenses.rank_with_order(@court), asc: 'najmenej', desc: 'najviac'), :court_expenses => (Court::Expenses.courts(@court.type).count), :court_type => (@court.type == CourtType.regional ? 'krajských' : 'okresných') %>
         </p>
         <p>
           <span class="gutter centered"><%= icon_tag :legal %></span>
           <% unless @court.expenses_total.zero? %>
-            <a href="#" data-target="#expenses" data-toggle="collapse">Pokuty od Ústavného súdu</a>
+            <a href="#" data-target="#expenses" data-toggle="collapse"><%= t '.pokuty_od' %></a>
           <% else %>
-            Pokuty od Ústavného súdu
+            <%= t '.pokuty_od_1' %>
           <% end %>
-          Slovenskej republiky za neskoré a nesprávne rozhodnutia v rokoch
-          <%= @expenses.first.year %> &ndash; <%= @expenses.last.year %>
-          boli <%= number_to_currency(@court.expenses_total, precision: 0) %>.
+          <%= t '.slovenskej', :expenses_first => (@expenses.first.year), :expenses_last => (@expenses.last.year), :number_to => (number_to_currency(@court.expenses_total, precision: 0)) %>
         </p>
         <% unless @court.expenses_total.zero? %>
           <div id="expenses" class="collapse out">
             <ul class="unstyled">
               <% @expenses.reverse.reject { |expense| expense.value.zero? }.each do |expense| %>
-                <li><%= icon_tag :'credit-card' %> Pokuta za rok <%= expense.year %> bola <%= number_to_currency expense.value, precision: 0 %>.</li>
+                <li><%= t '.pokuta_za_rok', :icon_tag => (icon_tag :'credit-card'), :expense_year => (expense.year), :number_to => (number_to_currency expense.value, precision: 0) %></li>
               <% end %>
             </ul>
           </div>
@@ -56,8 +46,7 @@
 
       <% if @court.average_proceeding_lengths? %>
         <p>
-          <span class="gutter centered"><%= icon_tag :time %></span>
-          Priemerné dĺžky trvania konaní v rámci súdu podľa agiend:
+          <%= t '.priemerné_d_ky_html', :icon_tag_time => (icon_tag :time) %>
         </p>
         <ul class="unstyled inline">
           <% @court.average_proceeding_lengths.each do |agenda| %>
@@ -69,14 +58,11 @@
             <div class="accordion-group">
               <div id="average-proceeding-length-<%= agenda.acronym %>" class="collapse<%= ' in' if agenda.acronym == :T %>">
                 <p>
-                  <span class="gutter centered"><%= icon_tag :time %></span>
-                  Celkovo <%= rank_with_order Court::AverageProceedingLengths::Ranking.rank_with_order(@court, agenda.acronym), asc: 'najrýchlejší', desc: 'najpomalší' %>
-                  súd z <%= Court::AverageProceedingLengths::Ranking.courts.size %>
-                  okresných súdov v rámci agendy <%= agenda.name %>:
+                  <%= t '.celkovo_súd_z_html', :icon_tag_time => (icon_tag :time), :rank_with => (rank_with_order Court::AverageProceedingLengths::Ranking.rank_with_order(@court, agenda.acronym), asc: 'najrýchlejší', desc: 'najpomalší'), :court => (Court::AverageProceedingLengths::Ranking.courts.size), :agenda_name => (agenda.name) %>:
                 </p>
                 <ul class="unstyled">
                   <% agenda.data.each do |data| %>
-                    <li>Priemerná dĺžka za rok <%= data[:year] %> je <%= number_with_precision data[:value], precision: 1 %> mesiaca.</li>
+                    <li><%= t '.priemerná_d_ka', :data_year => (data[:year]), :number_with => (number_with_precision data[:value], precision: 1) %></li>
                   <% end %>
                 </ul>
               </div>
@@ -94,7 +80,7 @@
       <div class="tabbable">
         <ul class="nav nav-tabs">
           <li class="active">
-            <a href="#contact" data-toggle="tab" data-track="court-contact">Kontakt</a>
+            <a href="#contact" data-toggle="tab" data-track="court-contact"><%= t '.kontakt_1' %></a>
           </li>
           <li><%= tab_link_to_with_count 'Sudcovia', '#judges', @judges.active.listed.size, track_data(:'court-judges') %></li>
           <li><%= tab_link_to_with_count 'Rozhodnutia', '#decrees', @decrees.size, track_data(:'court-decrees') %></li>
@@ -132,8 +118,7 @@
   <div class="row">
     <div class="span12">
       <small class="muted">
-        Informácie o súde boli získané z <%= external_link_to 'dokumentu', @court.uri, class: :muted, icon: true %>,
-        ktorého posledná aktualizácia bola vykonaná <%= time_tag @court.updated_at.to_date, format: :default %>.
+        <%= t '.informácie_o_1', :external_link => (external_link_to 'dokumentu', @court.uri, class: :muted, icon: true), :time_tag_court => (time_tag @court.updated_at.to_date, format: :default) %>
       </small>
     </div>
   </div>

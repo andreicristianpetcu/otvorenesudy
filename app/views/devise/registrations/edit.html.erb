@@ -10,7 +10,7 @@
           <%= f.email_field :email, autofocus: true, class: :span8 %>
         </p>
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-          <p>Zatiaľ neoverený e-mail: <%= resource.unconfirmed_email %></p>
+          <p><%= t '.zatia', :resource => (resource.unconfirmed_email) %></p>
         <% end %>
         <p>
           <%= f.label :password %>
@@ -24,7 +24,7 @@
           <%= f.label :current_password %>  
           <%= f.password_field :current_password, placeholder: 'Vyplňte, pre potvrdenie zmien.', class: :span8 %>
         </p>
-        <button type="submit" class="btn btn-primary btn-large">Uložiť</button>
+        <button type="submit" class="btn btn-primary btn-large"><%= t '.ulo_i' %></button>
       <% end %>
     </div>
   </div>
@@ -33,8 +33,8 @@
 <section id="user-unregistration" class="user">
   <div class="row">
     <div class="offset2 span8">
-      <legend>Zrušenie účtu</legend>
-      <%= button_to "Zrušiť účet", registration_path(resource_name), data: { confirm: "Ste si istý?" }, method: :delete, class: :'btn btn-danger btn-large' %>
+      <legend><%= t '.zru_enie_ú_tu' %></legend>
+      <%= button_to (t '.zru_i_ú_et'), registration_path(resource_name), data: { confirm: "Ste si istý?" }, method: :delete, class: :'btn btn-danger btn-large' %>
     </div>
   </div>
 </section>

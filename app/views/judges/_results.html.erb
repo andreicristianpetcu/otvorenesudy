@@ -17,15 +17,12 @@
             <% end %>
           <% else %>
             <% if judge.probably_superior_court_officer? %>
-              Pravdepodobne <%= tooltip_tag "VSÚ", "Vyšší súdny úradník" %>
+              <%= t '.pravdepodobne', :tooltip_tag => (tooltip_tag "VSÚ", "Vyšší súdny úradník") %>
             <% else %>
-              Neznám<%= judge.probably_woman ? 'a pracovníčka' : 'y pracovník' %>
+              <%= t '.neznám', :judge_probably => (judge.probably_woman ? 'a pracovníčka' : 'y pracovník') %>
             <% end %>
           <% end %>
-          na súde <%= link_to_court_by_judge_employment employment %>,
-          <%= 'ne' if Hearing.during_employment(employment).exact.size.zero? %>evidujeme
-          <%= translate_with_count(Hearing.during_employment(employment).exact.size, :hearing) %>
-          a <%= translate_with_count(Decree.during_employment(employment).exact.size, :decree) %>.
+          <%= t '.na_súde_1', :link_to_court => (link_to_court_by_judge_employment employment), :if_hearing => (if Hearing.during_employment(employment).exact.size.zero?), :translate_with => (translate_with_count(Hearing.during_employment(employment).exact.size, :hearing)), :translate_with_1 => (translate_with_count(Decree.during_employment(employment).exact.size, :decree)) %>
         </p>
       <% end %>
     </div>

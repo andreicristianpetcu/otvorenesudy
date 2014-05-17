@@ -1,11 +1,8 @@
 <div class="header">
   <h1>
-    <%= link_to "Otvorené Súdy", root_url %>
+    <%= link_to (t '.otvorené_súdy_7'), root_url %>
     <small>
-      <%= translate_with_count Court.total,      :court %>,
-      <%= translate_with_count Judge.total,      :judge %>,
-      <%= translate_with_count Hearing.total,    :hearing %> a
-      <%= translate_with_count Decree.total,     :decree %>
+      <%= t '.a_2', :translate_with => (translate_with_count Court.total,      :court), :translate_with_1 => (translate_with_count Judge.total,      :judge), :translate_with_2 => (translate_with_count Hearing.total,    :hearing), :translate_with_3 => (translate_with_count Decree.total,     :decree) %>
 <!--
       <%= translate_with_count Proceeding.total, :proceeding %>
 -->

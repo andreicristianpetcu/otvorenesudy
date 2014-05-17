@@ -1,0 +1,79 @@
+---
+sk:
+  views:
+    pagination:
+      first: Prvá strana translated ro
+      last: Posledná strana translated ro
+      previous: <i class="icon-angle-left"></i> translated ro
+      next: <i class="icon-angle-right"></i> translated ro
+      truncate: "&hellip; translated ro"
+  helpers:
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: "Žiadny %{entry_name} translated ro"
+          one: 1 %{entry_name} translated ro
+          other: Zobrazených všetkých %{count} translated ro
+      more_pages:
+        display_entries: Zobrazených %{first} &ndash; %{last} z celkovo %{total} translated
+          ro
+  search:
+    sort:
+      common:
+        score: Relevancia translated ro
+        created_at: Dátum pridania dokumentu translated ro
+        updated_at: Dátum aktualizácie dokumentu translated ro
+        judges_count: Počet sudcov translated ro
+        hearings_count: Počet pojednávaní translated ro
+        decrees_count: Počet rozhodnutí translated ro
+      court:
+        score: Relevancia translated ro
+        created_at: Dátum pridania dokumentu translated ro
+        updated_at: Dátum aktualizácie dokumentu translated ro
+        judges_count: Počet sudcov translated ro
+        hearings_count: Počet pojednávaní translated ro
+        decrees_count: Počet rozhodnutí translated ro
+      judge:
+        score: Relevancia translated ro
+        created_at: Dátum pridania dokumentu translated ro
+        updated_at: Dátum aktualizácie dokumentu translated ro
+        judges_count: Počet sudcov translated ro
+        hearings_count: Počet pojednávaní translated ro
+        decrees_count: Počet rozhodnutí translated ro
+      hearing:
+        score: Relevancia translated ro
+        created_at: Dátum pridania dokumentu translated ro
+        updated_at: Dátum aktualizácie dokumentu translated ro
+        judges_count: Počet sudcov translated ro
+        hearings_count: Počet pojednávaní translated ro
+        decrees_count: Počet rozhodnutí translated ro
+        date: Dátum pojednávania translated ro
+      decree:
+        score: Relevancia translated ro
+        created_at: Dátum pridania dokumentu translated ro
+        updated_at: Dátum aktualizácie dokumentu translated ro
+        judges_count: Počet sudcov translated ro
+        hearings_count: Počet pojednávaní translated ro
+        decrees_count: Počet rozhodnutí translated ro
+        date: Dátum rozhodnutia translated ro
+        pages_count: Počet strán rozhodnutia translated ro
+      proceeding:
+        score: Relevancia translated ro
+        created_at: Dátum pridania dokumentu translated ro
+        updated_at: Dátum aktualizácie dokumentu translated ro
+        judges_count: Počet sudcov translated ro
+        hearings_count: Počet pojednávaní translated ro
+        decrees_count: Počet rozhodnutí translated ro
+  static_pages:
+    about: O projekte translated ro
+    faq: "Často kladené otázky translated ro"
+    code: Zdrojový kód translated ro
+    contact: Kontakt translated ro
+    terms_of_use: Podmiensky používania translated ro
+    privacy: Ochrana súkromia translated ro
+    copyright: Autorské práva translated ro
+    feedback: Našli ste chybu? translated ro
+    security: Bezpečnosť translated ro
+    how_it_works: Ako to funguje? translated ro
+    data_history: História dát translated ro
+    api: API translated ro

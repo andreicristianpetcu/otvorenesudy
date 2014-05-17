@@ -10,21 +10,19 @@
         <br/>
       <% end %>
       <small>
-        Verejné súdne konanie
+        <%= t '.verejné_súdne_1' %>
         <% if @proceeding.single_hearing? %>
-          <%= @proceeding.duration_events.first.historical ? "začalo" : "začne" %>
-          dňa &ndash; <%= proceeding_date @proceeding.duration_events.first.date %>
+          <%= t '.d_a_ndash_1', :proceeding => (@proceeding.duration_events.first.historical ? "začalo" : "začne"), :proceeding_1 => (proceeding_date @proceeding.duration_events.first.date) %>
         <% elsif @proceeding.single_decree?  %>
-          bolo ukončené dňa &ndash; <%= proceeding_date @proceeding.duration_events.first.date %>
+          <%= t '.bolo_ukon_ené_1', :proceeding => (proceeding_date @proceeding.duration_events.first.date) %>
         <% else %>
           <% unless @proceeding.probably_closed? %>
-            trvá odo dňa &ndash; <%= proceeding_date @proceeding.duration_events.first.date %>
+            <%= t '.trvá_odo_d_a_1', :proceeding => (proceeding_date @proceeding.duration_events.first.date) %>
           <% else %>
             <% if @proceeding.duration_events.first.date.to_date == @proceeding.duration_events.last.date.to_date %>
-              prebehlo dňa &ndash; <%= proceeding_date @proceeding.duration_events.first.date, format: :normal %>
+              <%= t '.prebehlo_d_a_1', :proceeding => (proceeding_date @proceeding.duration_events.first.date, format: :normal) %>
             <% else %>
-              trvalo odo dňa &ndash; <%= proceeding_date @proceeding.duration_events.first.date, format: :normal %>
-              do dňa &ndash; <%= proceeding_date @proceeding.duration_events.last.date, format: :normal %>
+              <%= t '.trvalo_odo_d_a_1', :proceeding => (proceeding_date @proceeding.duration_events.first.date, format: :normal), :proceeding_1 => (proceeding_date @proceeding.duration_events.last.date, format: :normal) %>
             <% end %>
           <% end %>
         <% end %>
@@ -35,21 +33,17 @@
   <div class="row">
     <div class="span8">
       <p>
-        Pre súdne konanie <%= 'zatiaľ ' unless @proceeding.probably_closed? %>evidujeme
-        <%= translate_with_count(@hearings.size, :hearing) %> a
-        <%= translate_with_count(@decrees.size, :decree) %>.
+        <%= t '.pre_súdne', :unless => (unless @proceeding.probably_closed?), :translate_with => (translate_with_count(@hearings.size, :hearing)), :translate_with_1 => (translate_with_count(@decrees.size, :decree)) %>
       </p>
       <% if @courts.any? %>
-        <p><%= translate_without_count(@courts.size, :court).upcase_first %> &ndash; <%= links_to_courts @courts %></p>
+        <p><%= t '.ndash_3', :translate => (translate_without_count(@courts.size, :court).upcase_first), :links_to => (links_to_courts @courts) %></p>
       <% end %>
       <% if @judges.any? %>
         <p>
           <% if @proceeding.judges_exact.any? %>
-            <%= translate_without_count(@proceeding.judges_exact.size, :judge).upcase_first %>
-            &ndash; <%= links_to_judges @proceeding.judges_exact %>
+            <%= t '.ndash_4', :translate => (translate_without_count(@proceeding.judges_exact.size, :judge).upcase_first), :links_to => (links_to_judges @proceeding.judges_exact) %>
           <% else %>
-            <%= translate_without_count(@proceeding.judges_inexact.size, :judge).upcase_first %>
-            &ndash; <%= judge_processed_names @proceeding.judges_inexact %>.
+            <%= t '.ndash_5', :translate => (translate_without_count(@proceeding.judges_inexact.size, :judge).upcase_first), :judge => (judge_processed_names @proceeding.judges_inexact) %>
           <% end %>
         </p>
       <% end %>
@@ -83,19 +77,19 @@
 <section id="proceeding-timeline" class="timeline">
   <div class="row">
     <div class="span12">
-      <p class="centered muted"><em>Súčasnosť</em></p>
+      <p class="centered muted"><em><%= t '.sú_asnos' %></em></p>
       <ol class="unstyled">
         <% ([@events.last] + @events.reverse).each_cons(2) do |previous, event| %>
           <%= render event.class.name.downcase, event.class.name.downcase.to_sym => event, previous: previous %>
         <% end %>
         <li class="timeline-unknown">
           <h4>
-            Podanie na súd<br/>
-            <small>Neznámy dátum</small>
+            <%= t '.podanie_na_súd' %><br/>
+            <small><%= t '.neznámy_dátum' %></small>
           </h4>
         </li>
       </ol>
-      <p class="centered muted"><em>Minulosť</em></p>
+      <p class="centered muted"><em><%= t '.minulos' %></em></p>
     </div>
   </div>
 </section>
@@ -104,8 +98,7 @@
   <div class="row">
     <div class="span12">
       <small class="muted">
-        Informácie o udalostiach súdneho konania boli získané z dokumentov zverejnených na portáli
-        <%= external_link_to 'Ministerstva spravodlivosti Slovenskej republiky', JusticeGovSk::URL.base, class: :muted, icon: true %>
+        <%= t '.informácie_o_2', :external_link => (external_link_to 'Ministerstva spravodlivosti Slovenskej republiky', JusticeGovSk::URL.base, class: :muted, icon: true) %>
       </small>
     </div>
   </div>

@@ -6,8 +6,7 @@
       <%= hearing_headline @hearing, limit: 45, tooltip: true %>
       <br/>
       <small>
-        Pojednávanie <%= @hearing.historical ? "malo prebehnúť" : "prebehne" %> dňa &ndash;
-        <%= @hearing.date ? hearing_date(@hearing.date) : "neznámy dátum" %>
+        <%= t '.pojednávanie_d_1', :hearing => (@hearing.historical ? "malo prebehnúť" : "prebehne"), :hearing_date => (@hearing.date ? hearing_date(@hearing.date) : "neznámy dátum") %>
       </small>
     </h1>
   </div>
@@ -17,18 +16,18 @@
   <div class="row">
     <div class="span8">
       <% if @court %>
-        <p><%= hearing_type @hearing.type %> sa <%= @hearing.historical ? "konalo" : "bude konať" %> na súde <%= link_to_court @court %><%= ", v miestnosti #{@hearing.room}" if @hearing.room %>.</p>
+        <p><%= t '.sa_na_súde_v', :hearing_type => (hearing_type @hearing.type), :hearing => (@hearing.historical ? "konalo" : "bude konať"), :link_to_court => (link_to_court @court), :hearing_room => (@hearing.room), :if_hearing => (if @hearing.room) %></p>
       <% end %>
       <% if @hearing.section || @hearing.special_type %>
         <p>
           <% if @hearing.section %>
-            Úsek &ndash; <%= @hearing.section.value %><%= ', ' if @hearing.special_type %>
+            Ú<%= t '.sek_ndash', :hearing => (@hearing.section.value), :if_hearing => (if @hearing.special_type) %>
           <% end %>
 
           <%-# Civil hearings only -%>
 
           <% if @hearing.special_type %>
-            <%= @hearing.section ? 't' : 'T' %>yp &ndash; <%= @hearing.special_type %>
+            <%= t '.yp_ndash', :hearing => (@hearing.section ? 't' : 'T'), :hearing_1 => (@hearing.special_type) %>
           <% end %>
         </p>
       <% end %>
@@ -36,28 +35,28 @@
       <%-# All hearing types -%>
 
       <% if @hearing.form %>
-        <p>Forma úkonu &ndash; <%= link_to_hearings_search @hearing.form.value, params: { form: @hearing.form.value } %></p>
+        <p><%= t '.forma_úkonu', :link_to => (link_to_hearings_search @hearing.form.value, params: { form: @hearing.form.value }) %></p>
       <% end %>
       <% if @hearing.subject %>
-        <p>Predmet &ndash; <%= link_to_hearings_search @hearing.subject.value, params: { subject: @hearing.subject.value } %></p>
+        <p><%= t '.predmet_ndash', :link_to => (link_to_hearings_search @hearing.subject.value, params: { subject: @hearing.subject.value }) %></p>
       <% end %>
 
       <%-# Special hearings only -%>
 
       <% if @hearing.commencement_date? %>
-        <p>Dátum započatia &ndash; <%= hearing_date @hearing.commencement_date %></p>
+        <p><%= t '.dátum_zapo', :hearing_date => (hearing_date @hearing.commencement_date) %></p>
       <% end %>
       <% unless @hearing.selfjudge.nil? %>
-        <p>Samosudca &ndash; <%= @hearing.selfjudge ? 'áno' : 'nie' %></p>
+        <p><%= t '.samosudca', :hearing => (@hearing.selfjudge ? 'áno' : 'nie') %></p>
       <% end %>
 
       <%-# All hearing types -%>
 
       <% if @hearing.note %>
-        <p>Poznámka &ndash; <%= @hearing.note %></p>
+        <p><%= t '.poznámka_ndash', :hearing_note => (@hearing.note) %></p>
       <% end %>
 
-      <p><%= external_link_to 'Pôvodný dokument', @hearing.uri, icon: true %> (odkaz už <%= tooltip_tag 'nemusí', 'Viď poznámku na konci tohto dokumentu' %> byť platný)</p>
+      <p><%= t '.odkaz_u_by', :external_link => (external_link_to 'Pôvodný dokument', @hearing.uri, icon: true), :tooltip_tag => (tooltip_tag 'nemusí', 'Viď poznámku na konci tohto dokumentu') %></p>
     </div>
 
     <%-# All hearing types -%>
@@ -76,7 +75,7 @@
 
       <% if @hearing.proceeding %>
         <p class="centered">
-          Zobraziť v rámci <%= icon_link_to :paste, "súdneho konania", @hearing.proceeding, join: :append %>
+          <%= t '.zobrazi_v', :icon_link_to => (icon_link_to :paste, "súdneho konania", @hearing.proceeding, join: :append) %>
         </p>
       <% end %>
 
@@ -89,7 +88,7 @@
 
 <% if @proposers.any? %>
   <section id="hearing-proposers">
-    <h2>Navrhovatelia</h2>
+    <h2><%= t '.navrhovatelia' %></h2>
 
     <div class="row">
       <div class="span12">
@@ -105,7 +104,7 @@
 
 <% if @opponents.any? %>
   <section id="hearing-opponents">
-    <h2>Odporcovia</h2>
+    <h2><%= t '.odporcovia' %></h2>
 
     <div class="row">
       <div class="span12">
@@ -123,7 +122,7 @@
 
 <% if @defendants.any? %>
   <section id="hearing-defendants">
-    <h2>Obžalovaní</h2>
+    <h2><%= t '.ob_alovaní' %></h2>
 
     <div class="row">
       <div class="span12">
@@ -155,18 +154,18 @@
 
 <% if @judges.any? %>
   <section id="hearing-judges">
-    <h2>Sudcovia</h2>
+    <h2><%= t '.sudcovia_2' %></h2>
 
     <%-# Special hearings only -%>
 
     <% if @judges.chaired.any? %>
       <div class="row">
         <div class="span12">
-          Funkciu predsedu senátu zastáva
+          <%= t '.funkciu' %>
           <% if @judges.chaired.exact.any? %>
-            <%= links_to_judges @judges.chaired.exact %>.
+            <%= links_to_judges @judges.chaired.exact %><%= t '.key' %>
           <% else %>
-            <%= judge_processed_names @judges.chaired.inexact %>.
+            <%= judge_processed_names @judges.chaired.inexact %><%= t '.key_1' %>
           <% end %>
         </div>
       </div>
@@ -180,7 +179,7 @@
           <% if @judges.normal.exact.any? %>
             <%= links_to_judges @judges.normal.exact %>
           <% else %>
-            <%= judge_processed_names @judges.normal.inexact %>.
+            <%= judge_processed_names @judges.normal.inexact %><%= t '.key_2' %>
           <% end %>
         </div>
       </div>
@@ -192,14 +191,12 @@
   <div class="row">
     <div class="span12">
       <small class="muted">
-        Informácie o súdnom pojednávaní boli získané z <%= external_link_to 'dokumentu', @hearing.uri, class: :muted, icon: true %>,
-        ktorého posledná aktualizácia bola vykonaná <%= time_tag @hearing.updated_at.to_date, format: :default %>.
+        <%= t '.informácie_o_3', :external_link => (external_link_to 'dokumentu', @hearing.uri, class: :muted, icon: true), :time_tag => (time_tag @hearing.updated_at.to_date, format: :default) %>
         <br/>
-        Odkaz na <%= external_link_to 'pôvodný dokument', @hearing.uri, class: :muted, icon: true %> už nemusí byť platný,
-        pretože portál Ministerstva spravodlivosti mohol zverejniť dokument pod týmto odkazom iba na určitú dobu.
+        <%= t '.odkaz_na_u', :external_link => (external_link_to 'pôvodný dokument', @hearing.uri, class: :muted, icon: true) %>
         <% if File.readable? @hearing.resource_path %>
           <br/>
-          Z toho dôvodu poskytujeme odkaz na pôvodný <%= link_to_hearing_resource @hearing, icon_tag(:'file-alt', label: 'spracovaný dokument', join: :append), class: :icon %> v surovej forme.
+          <%= t '.z_toho_dôvodu', :link_to => (link_to_hearing_resource @hearing, icon_tag(:'file-alt', label: 'spracovaný dokument', join: :append), class: :icon) %>
         <% end %>
       </small>
     </div>

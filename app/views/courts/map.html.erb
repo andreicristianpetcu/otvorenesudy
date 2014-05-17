@@ -5,15 +5,14 @@
     <h1>
       <%= yield :title %>
       <br/>
-      <small>Na Slovensku sídli <%= @courts.size %> súdov na <%= @groups.size %> rôznych miestach.</small>
+      <small><%= t '.na_slovensku', :courts_size => (@courts.size), :groups_size => (@groups.size) %></small>
     </h1>
   </div>
   
   <div class="row">
     <div class="span12">
       <p>
-        <%= icon_tag :'map-marker' %>
-        Kliknutím na vyznačený bod na mape sa zobrazia základné informácie o súde.
+        <%= t '.kliknutím_na', :icon_tag_map => (icon_tag :'map-marker') %>
       </p>
 
       <%= courts_map @groups %>

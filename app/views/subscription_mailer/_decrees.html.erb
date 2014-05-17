@@ -11,19 +11,18 @@
       <% if decree.date %>
         <br/>
         <small>
-          Rozhodnutie bolo vynesené dňa &ndash;
-          <%= decree_date decree.date %>
+          <%= t '.rozhodnutie_2', :decree_date => (decree_date decree.date) %>
         </small>
       <% end %>
     </h4>
 
     <div class="search-result-content">
       <% if decree.court %>
-        Súd &ndash; <%= link_to decree.court.name, court_url(decree.court) %>
+        <%= t '.súd_ndash_3', :link_to_decree => (link_to decree.court.name, court_url(decree.court)) %>
       <br/>
       <% end %>
       <% if decree.judges.any? %>
-        <%= translate_without_count(decree.judges.size, :judge).upcase_first %> &ndash; <%= links_to_judges decree.judges %>
+        <%= t '.ndash_21', :translate => (translate_without_count(decree.judges.size, :judge).upcase_first), :links_to => (links_to_judges decree.judges) %>
         <br/>
       <% end %>
     </div>

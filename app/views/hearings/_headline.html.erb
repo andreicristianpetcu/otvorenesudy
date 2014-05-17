@@ -1,10 +1,10 @@
-Každá dvanásta domácnosť zaplatila<br/>
-úplatok pri kontakte so súdnictvom v roku 2012
+<%= t '.ka_dá_dvanásta' %><br/>
+ú<%= t '.platok_pri' %>
 
 <small class="source">
-  Svetový barometer korupcie, Transparency International
+  <%= t '.svetový' %>
 </small>
 
 <small class="total">
-  Otvorené Súdy &mdash; vyhľadávate v <%= number_with_delimiter Hearing.total %> pojednávaniach
+  <%= t '.otvorené_súdy_3', :number_with => (number_with_delimiter Hearing.total) %>
 </small>
