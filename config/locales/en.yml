@@ -1,426 +1,79 @@
-en:
-  decree_pages:
-    results:
-      pre_h_adaný_html: "%{close_link_to}\n    %{icon_tag} Pre hľadaný výraz <strong>&bdquo;%{html_escape}&ldquo;</strong>\n    sme našli <strong>%{translate_with}</strong>."
-      pre_h_adaný_html: "%{close_link_to}\n    %{icon_tag} Pre hľadaný výraz sa nenašli <strong>žiadne výsledky</strong>."
-  courts:
-    map:
-      na_slovensku: "Na Slovensku sídli %{courts_size} súdov na %{groups_size} rôznych miestach."
-      kliknutím_na: "%{icon_tag_map}\n        Kliknutím na vyznačený bod na mape sa zobrazia základné informácie o súde."
-    judge_list:
-      tituly: "Tituly"
-      meno: "Meno"
-      pozícia: "Pozícia"
-    office:
-      tel_íslo_html: "<span class=\"gutter centered\">%{icon_tag_phone}</span>\n          Tel. číslo:"
-      e_mail_html: "<span class=\"gutter centered\">%{icon_tag}</span>\n          E-mail:"
-      poznámka_html: "<span class=\"gutter centered\">%{icon_tag}</span>\n          Poznámka:"
-      otváracie: "Otváracie hodiny %{icon_tag_time}"
-      pondelok: "Pondelok:"
-      utorok: "Utorok:"
-      streda: "Streda:"
-      tvrtok: "tvrtok:"
-      piatok: "Piatok:"
-    hearings:
-      ohlásené: "Ohlásené pojednávania"
-      pre_súd: "Pre súd neevidujeme žiadne súdne pojednávania."
-    media:
-      zmienky_v: "Zmienky v médiách"
-      odkazy_sú_vyh: "%{icon_tag}\n    Odkazy sú vyhľadávané automaticky na základe názvu súdu.\n    Súdu sa týkať nemusia."
-      o_súde_neboli: "O súde neboli nájdené žiadne zmienky v médiách."
-    decrees:
-      vynesené: "Vynesené rozhodnutia"
-      pre_súd_1: "Pre súd neevidujeme žiadne súdne rozhodnutia."
-    header:
-      a: "%{translate_with} a\n          %{translate_with_1}"
-    results:
-      súdu_je: "%{judge_at_court} súdu je %{link_to_judge}%{court}"
-      súdu: "%{judge_at_court} súdu"
-      je: "je %{link_to_judge}."
-      na_súde: "Na súde pracuje %{translate_with}."
-      pre_súd_zatia: "Pre súd zatiaľ ne%{if_court}evidujeme\n      %{translate_with}\n      a&nbsp;%{translate_with_1}."
-    index:
-      krajské_súdy: "Krajské súdy"
-      na_slovensku_1: "Na Slovensku je %{regional_size} krajských súdov."
-      okresné_súdy: "Okresné súdy"
-      na_slovensku_2: "Na Slovensku je %{district_size} okresných súdov."
-      informácie_o: "Informácie o súdoch boli získané z portálu\n        %{external_link}"
-    contact:
-      kontakt: "Kontakt %{icon_tag_phone}"
-      tel_íslo: "Tel. číslo:"
-      fax: "Fax:"
-      pre_médiá: "Pre médiá"
-      kontaktná: "Kontaktná osoba:"
-      tel_íslo_1: "Tel. číslo:"
-      adresa: "Adresa %{icon_tag}"
-      slovenská: "Slovenská republika"
-      mapa: "Mapa %{icon_tag_map}"
-      zobrazi_na: "Zobraziť na mape"
-      aj_s_ostatnými: "%{link_to}\n      aj s ostatnými súdmi Slovenskej Republiky."
-    headline:
-      celkovo_20: "Celkovo 20% sudcov má v súdnictve"
-      aspo_jedného: "aspoň jedného príbuzného.\n%{judge_with}"
-      otvorené_súdy: "Otvorené Súdy &mdash; vyhľadávate medzi %{number_with} súdmi"
-    show:
-      na_súde_1_html: "<span class=\"gutter centered\">%{icon_tag_user}</span>\n        Na súde %{judges_active}\n        %{translate_with}."
-      pre_súd_zatia_1_html: "<span class=\"gutter centered\">%{icon_tag_file}</span>\n        Pre súd zatiaľ ne%{if_court}evidujeme\n        %{translate_with}\n        a&nbsp;%{translate_with_1}."
-      celkovo_html: "<span class=\"gutter centered\">%{icon_tag_legal}</span>\n          Celkovo %{rank_with}\n          pokutovaný súd z %{court_expenses}\n          %{court_type} súdov."
-      pokuty_od: "Pokuty od Ústavného súdu"
-      pokuty_od_1: "Pokuty od Ústavného súdu"
-      slovenskej: "Slovenskej republiky za neskoré a nesprávne rozhodnutia v rokoch\n          %{expenses_first} &ndash; %{expenses_last}\n          boli %{number_to}."
-      pokuta_za_rok: "%{icon_tag} Pokuta za rok %{expense_year} bola %{number_to}."
-      priemerné_d_ky_html: "<span class=\"gutter centered\">%{icon_tag_time}</span>\n          Priemerné dĺžky trvania konaní v rámci súdu podľa agiend:"
-      celkovo_súd_z_html: "<span class=\"gutter centered\">%{icon_tag_time}</span>\n                  Celkovo %{rank_with}\n                  súd z %{court}\n                  okresných súdov v rámci agendy %{agenda_name}"
-      priemerná_d_ka: "Priemerná dĺžka za rok %{data_year} je %{number_with} mesiaca."
-      kontakt_1: "Kontakt"
-      informácie_o_1: "Informácie o súde boli získané z %{external_link},\n        ktorého posledná aktualizácia bola vykonaná %{time_tag_court}."
-    featured_court:
-      súdu_je_1_html: "<strong>%{judge_at_court}</strong> súdu je <strong>%{link_to_judge}</strong>%{court}"
-      súdu_1_html: "<strong>%{judge_at_court}</strong> súdu"
-      je_1_html: "je <strong>%{link_to_judge}</strong>."
-      na_súde_1_html: "Na súde pracuje <strong>%{translate_with}</strong>."
-      pre_súd_zatia_1_html: "Pre súd zatiaľ ne%{if_court}evidujeme\n      <strong>%{translate_with}</strong>\n      a&nbsp;<strong>%{translate_with_1}</strong>."
-      slovenská_1: "Slovenská republika"
-    judges:
-      vedenie_súdu: "Vedenie súdu"
-      súdu_je_1: "%{judge_at_court} súdu je %{link_to_judge}%{court}"
-      súdu_1: "%{judge_at_court} súdu"
-      je_1: "je %{link_to_judge}."
-      sudcovia: "Sudcovia"
-      tabu_ka_sudcov: "Tabuľka sudcov, ktorí aktívne pôsobia na súde."
-      tabu_ka_sudcov_1: "Tabuľka sudcov, ktorí pôsobili na súde a ostatných úradníkov, ktorí\n        boli uvedení pri súdnych pojednávaniach alebo rozhodnutiach."
-  proceedings:
-    results:
-      verejné_súdne: "Verejné súdne konanie"
-      d_a_ndash: "%{proceeding}\n          dňa &ndash; %{proceeding_1}"
-      bolo_ukon_ené: "bolo ukončené dňa &ndash; %{proceeding}"
-      trvá_odo_d_a: "trvá odo dňa &ndash; %{proceeding}"
-      prebehlo_d_a: "prebehlo dňa &ndash; %{proceeding}"
-      trvalo_odo_d_a: "trvalo odo dňa &ndash; %{proceeding}\n              do dňa &ndash; %{proceeding_1}"
-      evidujeme_a: "Evidujeme\n      %{translate_with} a\n      %{translate_with_1}."
-      ndash: "%{translate} &ndash; %{links_to}"
-      ndash_1: "%{translate}\n          &ndash; %{links_to}"
-      ndash_2: "%{translate}\n          &ndash; %{judge}"
-    headline:
-      od_roku_2009: "Od roku 2009 do júla 2013 zaplatili"
-      súdy_za_prie: "súdy za prieťahy v konaní a chybné"
-      rozhodnutia: "rozhodnutia viac než 4 milióny eur"
-      otvorené_súdy_1: "Otvorené Súdy &mdash; vyhľadávate v %{number_with} konaniach"
-    show:
-      verejné_súdne_1: "Verejné súdne konanie"
-      d_a_ndash_1: "%{proceeding}\n          dňa &ndash; %{proceeding_1}"
-      bolo_ukon_ené_1: "bolo ukončené dňa &ndash; %{proceeding}"
-      trvá_odo_d_a_1: "trvá odo dňa &ndash; %{proceeding}"
-      prebehlo_d_a_1: "prebehlo dňa &ndash; %{proceeding}"
-      trvalo_odo_d_a_1: "trvalo odo dňa &ndash; %{proceeding}\n              do dňa &ndash; %{proceeding_1}"
-      pre_súdne: "Pre súdne konanie zatiaľ %{unless}evidujeme\n        %{translate_with} a\n        %{translate_with_1}."
-      ndash_3: "%{translate} &ndash; %{links_to}"
-      ndash_4: "%{translate}\n            &ndash; %{links_to}"
-      ndash_5: "%{translate}\n            &ndash; %{judge}."
-      sú_asnos: "Súčasnosť"
-      podanie_na_súd: "Podanie na súd"
-      neznámy_dátum: "Neznámy dátum"
-      minulos: "Minulosť"
-      informácie_o_2: "Informácie o udalostiach súdneho konania boli získané z dokumentov zverejnených na portáli\n        %{external_link}"
-  devise:
-    mailer:
-      reset_password_instructions:
-        dobrý_de: "Dobrý deň,"
-        zmeni_heslo: "zmeniť heslo"
-        niekto_vy: "niekto vyžiadal zmenu Vášho hesla. Pre potvrdenie zmeny prosím kliknite na nasledujúci odkaz:\n  %{link_to_zmeni}."
-        pokia_ste: "Pokiaľ ste zmenu hesla nevyžiadali, ignorujte tento e-mail.\n  Vaše heslo zostane nezmenené pokiaľ zmenu nepotvrdíte kliknutím na uvedený odkaz."
-        v_prípade: "V prípade akýchkoľvek otázok nás %{mail_to}."
-        akujeme_za: "akujeme za pochopenie."
-      confirmation_instructions:
-        otvorené_súdy_2: "Otvorené Súdy"
-        vitajte_na: "Vitajte na stránkach projektu %{link_to}"
-        potvdi: "potvdiť registráciu"
-        pre_potvrdenie: "pre potvrdenie Vášho účtu prosím kliknite na nasledujúci odkaz:\n  %{link_to_potvdi}."
-        registráciu_je: "Registráciu je nutné potvrdiť najneskôr do dvoch dní, inak Vám systém neumožní sa prihlásiť."
-        v_prípade_1: "V prípade akýchkoľvek otázok nás %{mail_to}."
-        akujeme_za_1: "akujeme za registráciu a tešíme sa, že Vás náš projekt oslovil."
-    sessions:
-      new:
-        prihlási: "Prihlásiť"
-    confirmations:
-      new:
-        nedostali_ste: "Nedostali ste inštrukcie pre potvrdenie registrácie?"
-        preposla_in: "Preposlať inštrukcie"
-    passwords:
-      new:
-        zabudli_ste: "Zabudli ste heslo?"
-        posla_in: "Poslať inštrukcie"
-      edit:
-        zmeni_heslo_1: "Zmeniť heslo"
-    registrations:
-      new:
-        registrova: "Registrovať"
-      edit:
-        zatia: "Zatiaľ neoverený e-mail: %{resource}"
-        ulo_i: "Uložiť"
-        zru_enie_ú_tu: "Zrušenie účtu"
-        zru_i_ú_et: "Zrušiť účet"
-  subscriptions:
-    list:
-      vyh_adávanie: "Vyhľadávanie %{t_subscription}"
-      registrované_d: "Registrované dňa %{time_tag}"
-      ndash_6: "%{t_title} &ndash;\n              %{array_wrap}"
-      nenastavené: "Nenastavené žiadne obmedzenia."
-      aktualizova: "Aktualizovať"
-      zru_i: "Zrušiť"
-    hearings:
-      notifikácie: "Notifikácie pre nové pojednávania"
-    decrees:
-      notifikácie_1: "Notifikácie pre nové rozhodnutia"
+---
+sk:
+  views:
+    pagination:
+      first: Prvá strana translated en
+      last: Posledná strana translated en
+      previous: <i class="icon-angle-left"></i> translated en
+      next: <i class="icon-angle-right"></i> translated en
+      truncate: "&hellip; translated en"
+  helpers:
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: "Žiadny %{entry_name} translated en"
+          one: 1 %{entry_name} translated en
+          other: Zobrazených všetkých %{count} translated en
+      more_pages:
+        display_entries: Zobrazených %{first} &ndash; %{last} z celkovo %{total} translated
+          en
   search:
-    controls:
-      middot: "&middot;"
-    subscribe:
-      odobera: "Odoberať notifikácie"
-      pre_aktuálne: "Pre aktuálne nastavenie vyhľadávania už odoberáte notifikácie."
-      zaregistrujte: "Zaregistrujte si odoberanie notifikácií o nových výsledkoch vyhľadávania."
-      systém_vás: "Systém Vás bude periodicky notifikovať formou e-mailu o nových výsledkoch vyhľadávania,\n        ktoré vyhovujú aktuálnym nastaveniam vyhľadávania."
-      pre_odoberanie: "Pre odoberanie notifikácií o nových výsledkoch vyhľadávania sa musíte prihlásiť."
-      zatvori: "Zatvoriť"
-      aktualizova_1: "Aktualizovať"
-      zru_i_1: "Zrušiť"
-      odobera_1: "Odoberať"
-      registrova_1: "Registrovať"
-      prihlási_1: "Prihlásiť"
-    message:
-      ndash_z: "%{results_offset} &ndash; %{results_offset_1}\n    z celkovo %{translate_with}"
-      nenájdené: "Nenájdené %{translate_with}"
-      ms: "%{results_time} ms)"
-    header:
-      súdy: "Súdy"
-      sudcovia_1: "Sudcovia"
-      pojednávania: "Pojednávania"
-      rozhodnutia_1: "Rozhodnutia"
-      konania: "Konania"
-    results:
-      nastaveným_html: "%{icon_tag} Nastaveným obmedzeniam nevyhovujú <strong>žiadne výsledky</strong>."
-  hearings:
-    unprocessed:
-      pojednávanie_html: "<strong>%{icon_tag}</strong>\nPojednávanie je neúplné. Pri spracovaní pojednávania z portálu Ministerstva spravodlivosti nastala neznáma chyba."
-    anonymized:
-      pojednávanie_html: "<strong>%{icon_tag_1}</strong>\nPojednávanie bolo anonymizované na základe odôvodnenej žiadosti dotknutej osoby."
-    has_future_date:
-      dátum_html: "<strong>%{icon_tag_2}</strong>\nDátum pojednávania je zo vzdialenej budúcnosti, ide o chybu v\n%{external_link} (odkaz už nemusí byť platný)."
-    results:
-      pojednávanie_d: "Pojednávanie %{hearing} dňa &ndash;\n        %{hearing_date}"
-      pojednávanie: "%{icon_tag}\n        Pojednávanie je neúplné, pri jeho spracovaní nastala neznáma chyba."
-      dátum: "%{icon_tag}\n        Dátum pojednávania je zo vzdialenej budúcnosti, ide o chybu v pôvodných dátach."
-      súd_ndash: "Súd &ndash; %{link_to_court}"
-      ndash_7: "%{translate}\n          &ndash; %{links_to}"
-      ndash_8: "%{translate}\n          &ndash; %{judge}"
-      ndash_9: "%{translate} &ndash; %{hearing}"
-      ndash_10: "%{translate} &ndash; %{hearing}"
-      ndash_11: "%{translate} &ndash; %{hearing}"
-    had_future_date:
-      pojednávanie_1_html: "<strong>%{icon_tag}</strong>\nPojednávanie bolo zverejnené na portáli Ministerstva spravodlivosti s dátumom so vzdialenej budúcnosti."
-    headline:
-      ka_dá_dvanásta: "Každá dvanásta domácnosť zaplatila"
-      platok_pri: "platok pri kontakte so súdnictvom v roku 2012"
-      svetový: "Svetový barometer korupcie, Transparency International"
-      otvorené_súdy_3: "Otvorené Súdy &mdash; vyhľadávate v %{number_with} pojednávaniach"
-    show:
-      pojednávanie_d_1: "Pojednávanie %{hearing} dňa &ndash;\n        %{hearing_date}"
-      sa_na_súde_v: "%{hearing_type} sa %{hearing} na súde %{link_to_court}, v miestnosti %{hearing_room}%{if_hearing}."
-      sek_ndash: "sek &ndash; %{hearing}, %{if_hearing}"
-      yp_ndash: "%{hearing}yp &ndash; %{hearing_1}"
-      forma_úkonu: "Forma úkonu &ndash; %{link_to}"
-      predmet_ndash: "Predmet &ndash; %{link_to}"
-      dátum_zapo: "Dátum započatia &ndash; %{hearing_date}"
-      samosudca: "Samosudca &ndash; %{hearing}"
-      poznámka_ndash: "Poznámka &ndash; %{hearing_note}"
-      odkaz_u_by: "%{external_link} (odkaz už %{tooltip_tag} byť platný)"
-      zobrazi_v: "Zobraziť v rámci %{icon_link_to}"
-      navrhovatelia: "Navrhovatelia"
-      odporcovia: "Odporcovia"
-      ob_alovaní: "Obžalovaní"
-      sudcovia_2: "Sudcovia"
-      funkciu: "Funkciu predsedu senátu zastáva"
-      key: "."
-      key_1: "."
-      key_2: "."
-      informácie_o_3: "Informácie o súdnom pojednávaní boli získané z %{external_link},\n        ktorého posledná aktualizácia bola vykonaná %{time_tag}."
-      odkaz_na_u: "Odkaz na %{external_link} už nemusí byť platný,\n        pretože portál Ministerstva spravodlivosti mohol zverejniť dokument pod týmto odkazom iba na určitú dobu."
-      z_toho_dôvodu: "Z toho dôvodu poskytujeme odkaz na pôvodný %{link_to} v surovej forme."
-  layouts:
-    header:
-      testovacia_html: "%{icon_tag}\n  <span>Testovacia verzia</span>"
-    footer:
-      otvorené_súdy_4: "Otvorené Súdy %{icon_tag_legal}"
-      prehlásenia: "Prehlásenia %{icon_tag_file}"
-      transparentnos: "Transparentnosť %{icon_tag_ok}"
-      dáta: "Dáta %{icon_tag_hdd}"
-      o_projekte: "O projekte"
-      asto_kladené: "Často kladené otázky"
-      kontakt_2: "Kontakt"
-      podmienky_pou: "Podmienky používania"
-      ochrana: "Ochrana súkromia"
-      autorské_práva: "Autorské práva"
-      na_li_ste: "Našli ste chybu?"
-      bezpe_nos: "Bezpečnosť"
-      ako_to_funguje: "Ako to funguje?"
-      história_dát: "História dát"
-      api: "API"
-      open_data: "Open data projekty"
-      projekt_vyu: "Projekt využíva výhradne dáta verejných inštitúcií. Za ich vecnú správnosť autori nenesú zodpovednosť."
-      copyright_a: "Copyright %{external_link}\n          a %{external_link_1}\n          (členovia %{external_link_2} na\n          %{external_link_3}\n          %{external_link_4})\n          v spolupráci s %{external_link_5}\n          &copy;"
-      za_podpory_v: "Za podpory %{external_link}\n          v Berlíne a projektu %{external_link_1}\n          %{external_link_2}."
-  decrees:
-    unprocessed:
-      rozhodnutie_je_html: "<strong>%{icon_tag}</strong>\nRozhodnutie je neúplné. Pri spracovaní rozhodnutia z portálu Ministerstva spravodlivosti nastala neznáma chyba."
-    has_future_date:
-      rozhodnutie_má_html: "<strong>%{icon_tag_1}</strong>\nRozhodnutie má budúci dátum vynesenia, ide o chybu v\n%{external_link} (odkaz už nemusí byť platný)."
-    results:
-      rozhodnutie: "Rozhodnutie bolo vynesené dňa &ndash;\n        %{decree_date}"
-      rozhodnutie_je: "%{icon_tag}\n        Rozhodnutie je neúplné, pri jeho spracovaní nastala neznáma chyba."
-      rozhodnutie_má: "%{icon_tag}\n        Rozhodnutie má budúci dátum vynesenia, ide o chybu v pôvodných dátach."
-      súd_ndash_1: "Súd &ndash; %{link_to_court}"
-      ndash_12: "%{translate}\n          &ndash; %{links_to}"
-      ndash_13: "%{translate}\n          &ndash; %{judge}"
-    had_future_date:
-      rozhodnutie_1_html: "<strong>%{icon_tag}</strong>\nRozhodnutie bolo zverejnené na portáli Ministerstva spravodlivosti skôr ako mohlo byť vynesené."
-    headline:
-      v_priemere_45: "V priemere 45% súdnych rozhodnutí"
-      je_potvrdených: "je potvrdených vyšším súdom"
-      tatistická_ro: "tatistická ročenka MSSR 2011 a 2012"
-      otvorené_súdy_5: "Otvorené Súdy &mdash; vyhľadávate v %{number_with} rozhodnutiach"
-    show:
-      rozhodnutie_1: "Rozhodnutie bolo vynesené dňa &ndash;\n        %{decree_date}"
-      rozhodnuté: "Rozhodnuté bolo na súde %{link_to_court}"
-      rozhodutie: "Rozhodutie vydal sudca"
-      oblasti: "Oblasti právnej úpravy &ndash; %{link_to}"
-      ndash_14: "&ndash; %{link_to}"
-      forma: "Forma rozhodnutia &ndash; %{link_to}"
-      povaha: "Povaha rozhodnutia &ndash; %{decree_natures}"
-      odkaz_u_by_1: "%{external_link} (odkaz už %{tooltip_tag} byť platný)"
-      stiahnu_ako: "Stiahnuť ako %{link_to_decree}"
-      zobrazi_v_1: "Zobraziť v rámci %{icon_link_to}"
-      predpisy: "Predpisy odkazované v rozhodnutí:"
-      sumár_ndash: "Sumár &ndash; %{decree_summary}"
-      informácie_o_4: "Informácie o súdnom rozhodnutí boli získané z %{external_link},\n        ktorého posledná aktualizácia bola vykonaná %{time_tag}."
-      odkaz_na_u_1: "Odkaz na %{external_link} už nemusí byť platný,\n        pretože portál Ministerstva spravodlivosti mohol zverejniť dokument pod týmto odkazom iba na určitú dobu."
-      z_toho_dôvodu_1: "Z toho dôvodu poskytujeme odkaz na pôvodný %{link_to_decree} v surovej forme."
-  judges:
-    hearings:
-      pre_sudcu: "Pre sudcu neevidujeme žiadne súdne pojednávania."
-    media:
-      odkazy_sú_vyh_1: "%{icon_tag}\n    Odkazy sú vyhľadávané automaticky na základe mena a pôsobiska sudcu.\n    Sudcu sa týkať nemusia."
-      o_sudcovi: "O sudcovi neboli nájdené žiadne zmienky v médiách."
-    decrees:
-      pre_sudcu_1: "Pre sudcu neevidujeme žiadne súdne rozhodnutia."
-    header:
-      otvorené_vyh: "Otvorené vyhľadávanie"
-      a_1: "%{translate_with} a\n          %{translate_with_1}"
-      priemerný_mesa: "Priemerný mesačný príjem začínajúceho sudcu na okresnom súde v roku 2012 bol 2500 eur, sudcu na Najvyššom súde 3600 eur."
-    results:
-      pravdepodobne: "Pravdepodobne %{tooltip_tag}"
-      neznám: "Neznám%{judge_probably}"
-      na_súde_1: "na súde %{link_to_court},\n          ne%{if_hearing}evidujeme\n          %{translate_with}\n          a %{translate_with_1}."
-    index:
-      sudcovia_3: "Sudcovia"
-      informácie_o_5: "Informácie o sudcoch boli získané z portálu %{external_link}"
-      tieto: "Tieto informácie mohli byť ďalej doplnené o dáta získané z majetkových priznaní a štatistických výkazov sudcov."
-    headline:
-      priemerný_mesa_1: "Priemerný mesačný príjem začínajúceho sudcu"
-      na_okresnom: "na okresnom súde v roku 2012 bol 2&nbsp;500 eur,"
-      sudcu_na_najvy: "sudcu na Najvyššom súde 3&nbsp;600 eur"
-      otvorené_súdy_6: "Otvorené Súdy &mdash; vyhľadávate medzi %{number_with} sudcami"
-    show:
-      Údaje_o_html: "<span class=\"gutter centered\">%{icon_tag}</span>\n          Údaje o činnosti sudcu sú neúplné. Preberaným dátam z portálu Ministerstva spravodlivosti chýba informácia o zložení senátov."
-      aktívn: "Aktívn%{judge_probably}"
-      neaktívn: "Neaktívn%{judge_probably}"
-      ravdepodobne: "%{employment}ravdepodobne %{tooltip_tag}"
-      eznám: "%{employment}eznám%{judge_probably}"
-      na_súde_zatia: "na súde \n          %{link_to_court},\n          zatiaľ ne%{if_hearing}evidujeme\n          %{translate_with} a\n          %{translate_with_1}."
-      poznámka_html: "<span class=\"gutter centered\">%{icon_tag}</span>\n            Poznámka: %{employment}"
-      sudca_bol_html: "<span class=\"gutter centered\">%{judge}</span>\n          Sudca bol vymenovaný do funkcie pred\n          %{judge_1}, %{designation}/) { |c| c.downcase }}%{if_designation}."
-      ktorý_bol_html: "<span class=\"gutter centered\">%{icon_tag_file}</span>\n          %{external_link}, ktorý bol zverejnený vo výberovom konaní."
-      ktorý_bol_html: "<span class=\"gutter centered\">%{icon_tag_file}</span>\n          %{external_link}, ktorý bol zverejnený vo výberovom konaní."
-      po_et_html: "<span class=\"gutter centered\">%{icon_tag_legal}</span>\n          Počet rozhodnutí Ústavného súdu voči sudcovi &ndash; vydané %{judge_released} a prieťahy pred pridelením veci %{judge_delayed}."
-      rozhodnutie_2_html: "<span class=\"gutter centered\">%{icon_tag}</span>\n            Rozhodnutie sudcu je v prípade odvolaní potvrdené vyšším súdom v\n            %{number_to}.\n            %{popover_tag_html}"
-      nevybavených_html: "<span class=\"gutter centered\">%{icon_tag_inbox}</span>\n            Nevybavených prípadov mal sudca %{judge} ako na jeho začiatku."
-      re_tan_ných_html: "<span class=\"gutter centered\">%{icon_tag_inbox}</span>\n            Reštančných prípadov mal sudca %{judge} ako na jeho začiatku."
-      podiel_re_tan_html: "<span class=\"gutter centered\">%{icon_tag_tasks}</span>\n            Podiel reštančných vecí z celkového počtu nevybavených vecí je %{judge}.\n            %{popover_tag_html}"
-      príjmy_a_iné_html: "<span class=\"gutter centered\">%{icon_tag_euro}</span>\n          Príjmy a iné pôžitky sudcu uvedené v majetkových priznaniach za roky:\n          %{judge_incomes}."
-      príjmy_a_iné_html: "<span class=\"gutter centered\">%{icon_tag_euro}</span>\n                  Príjmy a iné pôžitky sudcu uvedené v majetkovom priznaní sudcu za rok %{year}"
-      ndash_15: "%{icon_tag} %{income} &ndash; %{number_to}."
-      blízke_osoby_html: "<span class=\"gutter centered\">%{icon_tag_group}</span>\n          Blízke osoby uvedené v majetkových priznaniach sudcu za roky:\n          %{judge_related}."
-      blízke_osoby_html: "<span class=\"gutter centered\">%{icon_tag_group}</span>\n                  Blízke osoby uvedené v majetkových priznaniach sudcu za rok %{year}"
-      key_3: "%{icon_tag_user} %{person} %{if_person}%{link_to}, %{link_to_1}%{html_safe_if}."
-      poznámky_k_html: "<span class=\"gutter centered\">%{icon_tag}</span>\n          <a href=\"#\" data-target=\"#substantiation-notes\" data-toggle=\"collapse\">Poznámky k dátam</a> získaných zo štatistických výkazov sudcov."
-      výkaz_za_rok: "%{icon_tag_file} Výkaz za rok %{year} &ndash; %{note}"
-      informácie_o_6: "Informácie o sudcovi boli získané %{judge_listed} %{external_link},\n        ktorého posledná aktualizácia bola vykonaná %{time_tag_judge}."
-      tieto_1: "Tieto informácie mohli byť ďalej doplnené o dáta získané z majetkových priznaní a štatistických výkazov sudcu."
-    judges:
-      sudca: "Sudca"
-      pozícia_1: "Pozícia"
-      súd: "Súd"
-  users:
-    subscriptions:
-      odoberanie: "Odoberanie notifikácií si registrujete vo vyhľadávaní"
-      pojednávaní: "Pojednávaní"
-      rozhodnutí: "Rozhodnutí"
-      alebo: "%{link_to}\n          alebo\n          %{link_to_1}"
-      pod_a: "podľa aktuálnych nastavení vyhľadávania."
-  subscription_mailer:
-    results:
-      nastavenie_vyh: "Nastavenie vyhľadávania:"
-      ndash_16: "%{t_title} &ndash;\n          %{array_wrap}"
-      nenastavené_1: "Nenastavené žiadne obmedzenia."
-      nové: "Nové %{translate}"
-      zru_i_2: "Zrušiť odoberanie notifikácií"
-      middot_1: "%{link_to_search}\n    &middot;\n    %{link_to_zru_i}"
-    hearings:
-      pojednávanie_d_2: "Pojednávanie %{hearing_date} dňa &ndash;\n          %{hearing_date_1}"
-      súd_ndash_2: "Súd &ndash; %{link_to}"
-      ndash_17: "%{translate} &ndash; %{links_to}"
-      ndash_18: "%{translate} &ndash; %{hearing}"
-      ndash_19: "%{translate} &ndash; %{hearing}"
-      ndash_20: "%{translate} &ndash; %{hearing}"
-    decrees:
-      rozhodnutie_2: "Rozhodnutie bolo vynesené dňa &ndash;\n          %{decree_date}"
-      súd_ndash_3: "Súd &ndash; %{link_to_decree}"
-      ndash_21: "%{translate} &ndash; %{links_to}"
-    header:
-      otvorené_súdy_7: "Otvorené Súdy"
-      a_2: "%{translate_with},\n      %{translate_with_1},\n      %{translate_with_2} a\n      %{translate_with_3}"
-    footer:
-      s_pozdravom: "S pozdravom,"
-      otvorené_súdy_8: "Otvorené Súdy"
-      tím_projektu: "tím projektu %{link_to}"
-      projekt: "Projekt Otvorené Súdy podporili Transparency International Berlín\n    a projekt Reštart Centra pre filantropiu."
-      silie_vyvori: "silie vyvoriť portál, ktorý by zhŕňal čo najviac informácií o súdoch\n    a sudcoch je finančne náročné. Ak sa Vám projekt páči, prosím prispejte\n    aj Vy na jeho rozvoj a sprístupnenie ďalších dát."
-  errors:
-    show:
-      a_preto_sa_ve: "A preto sa veľmi rozzúril jednorožec!"
+    sort:
+      common:
+        score: Relevancia translated en
+        created_at: Dátum pridania dokumentu translated en
+        updated_at: Dátum aktualizácie dokumentu translated en
+        judges_count: Počet sudcov translated en
+        hearings_count: Počet pojednávaní translated en
+        decrees_count: Počet rozhodnutí translated en
+      court:
+        score: Relevancia translated en
+        created_at: Dátum pridania dokumentu translated en
+        updated_at: Dátum aktualizácie dokumentu translated en
+        judges_count: Počet sudcov translated en
+        hearings_count: Počet pojednávaní translated en
+        decrees_count: Počet rozhodnutí translated en
+      judge:
+        score: Relevancia translated en
+        created_at: Dátum pridania dokumentu translated en
+        updated_at: Dátum aktualizácie dokumentu translated en
+        judges_count: Počet sudcov translated en
+        hearings_count: Počet pojednávaní translated en
+        decrees_count: Počet rozhodnutí translated en
+      hearing:
+        score: Relevancia translated en
+        created_at: Dátum pridania dokumentu translated en
+        updated_at: Dátum aktualizácie dokumentu translated en
+        judges_count: Počet sudcov translated en
+        hearings_count: Počet pojednávaní translated en
+        decrees_count: Počet rozhodnutí translated en
+        date: Dátum pojednávania translated en
+      decree:
+        score: Relevancia translated en
+        created_at: Dátum pridania dokumentu translated en
+        updated_at: Dátum aktualizácie dokumentu translated en
+        judges_count: Počet sudcov translated en
+        hearings_count: Počet pojednávaní translated en
+        decrees_count: Počet rozhodnutí translated en
+        date: Dátum rozhodnutia translated en
+        pages_count: Počet strán rozhodnutia translated en
+      proceeding:
+        score: Relevancia translated en
+        created_at: Dátum pridania dokumentu translated en
+        updated_at: Dátum aktualizácie dokumentu translated en
+        judges_count: Počet sudcov translated en
+        hearings_count: Počet pojednávaní translated en
+        decrees_count: Počet rozhodnutí translated en
   static_pages:
-    home:
-      otvorené_súdy_9: "Otvorené súdy"
-      transparentný: "Transparentný pohľad"
-      projekt_ktorý_html: "Projekt, ktorý <strong>stransparentní pohľad</strong> na <strong>slovenské súdnictvo</strong>.\n        Pre všetkých, ktorí majú radi <strong>dôležité informácie</strong> na jednom mieste a&nbsp;chcú v&nbsp;nich <strong>efektívne vyhľadávať</strong>."
-      otvorené_dáta: "Otvorené dáta"
-      súdne_nbsp: "Súdne&nbsp;dokumenty"
-      ponúkame_v_html: "Ponúkame všetky <strong>súdne rozhodnutia a&nbsp;pojednávania</strong>, ktoré boli zverejnené na stránke\n        <a href=\"http://justice.gov.sk\" target=\"_blank\">Ministerstva spravodlivosti</a> Slovenskej republiky."
-      otvorený: "Otvorený zdrojový kód"
-      ruby_nbsp_on: "Ruby&nbsp;on&nbsp;Rails"
-      zdrojový_kód_html: "Zdrojový kód projektu <a href=\"https://github.com/otvorenesudy\">Otvorené súdy</a>\n        je voľne dostupný službou <a href=\"https://github.com/\" target=\"_blank\">GitHub</a>."
-      projekt_1: "Projekt podporili"
-    header:
-      viac: "Viac transparentnosti do"
-      slovenského: "slovenského súdnictva"
-      súdom_na: "Súdom na Slovensku"
-      nedôveruje_a: "nedôveruje až 67% ľudí"
-      mdash_in_titút: "&mdash; Inštitút pre verejné otázky, jún 2012"
-      trestné: "Trestné konanie na okresných súdoch"
-      trvá_priemerne: "trvá priemerne štyri a pol mesiaca"
-      mdash: "&mdash; Štatistická ročenka MSSR 2012"
-      u_es_miliónov: "Už šesť miliónov eur zaplatili okresné a krajské"
-      súdy_s_a_ovate: "súdy sťažovateľom za súdne prieťahy od roku 2006"
-      mdash_nálezy: "&mdash; nálezy Ústavného súdu"
-      vyh_adávanie_v: "Vyhľadávanie v %{number_to} rozhodnutiach"
-      a_3: "a %{number_to} pojednávaniach"
-      mdash_otvorené: "&mdash; Otvorené Súdy"
+    about: O projekte translated en
+    faq: "Často kladené otázky translated en"
+    code: Zdrojový kód translated en
+    contact: Kontakt translated en
+    terms_of_use: Podmiensky používania translated en
+    privacy: Ochrana súkromia translated en
+    copyright: Autorské práva translated en
+    feedback: Našli ste chybu? translated en
+    security: Bezpečnosť translated en
+    how_it_works: Ako to funguje? translated en
+    data_history: História dát translated en
+    api: API translated en
